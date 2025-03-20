@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_simple_url_simple_urls",
+  "info": {
+    "displayName": "simpleUrl",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "newWindow": {
+      "type": "boolean"
+    }
+  }
+}
