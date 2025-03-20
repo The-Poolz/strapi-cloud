@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_footer_footer_components",
+  "info": {
+    "displayName": "Footer component",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Social",
+        "Company",
+        "Information",
+        "Help",
+        "Boost_Social"
+      ]
+    },
+    "footer_content": {
+      "displayName": "Footer Content",
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.footer-content"
+    }
+  }
+}

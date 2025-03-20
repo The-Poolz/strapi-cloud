@@ -1,6 +1,33 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedMedia extends Struct.ComponentSchema {
+export interface FooterFooterComponent extends Struct.ComponentSchema {
+  collectionName: 'components_footer_footer_components';
+  info: {
+    description: '';
+    displayName: 'Footer component';
+  };
+  attributes: {
+    footer_content: Schema.Attribute.Component<'footer.footer-content', true>;
+    Type: Schema.Attribute.Enumeration<
+      ['Social', 'Company', 'Information', 'Help', 'Boost_Social']
+    >;
+  };
+}
+
+export interface FooterFooterContent extends Struct.ComponentSchema {
+  collectionName: 'components_footer_footer_contents';
+  info: {
+    description: '';
+    displayName: 'Footer Content';
+  };
+  attributes: {
+    NewWindow: Schema.Attribute.Boolean;
+    Text: Schema.Attribute.String;
+    URL: Schema.Attribute.String;
+  };
+}
+
+export interface FooterMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
     displayName: 'Media';
@@ -11,7 +38,7 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedQuote extends Struct.ComponentSchema {
+export interface FooterQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
     displayName: 'Quote';
@@ -23,7 +50,7 @@ export interface SharedQuote extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedRichText extends Struct.ComponentSchema {
+export interface FooterRichText extends Struct.ComponentSchema {
   collectionName: 'components_shared_rich_texts';
   info: {
     description: '';
@@ -35,7 +62,7 @@ export interface SharedRichText extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedSeo extends Struct.ComponentSchema {
+export interface FooterSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
     description: '';
@@ -50,7 +77,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedSlider extends Struct.ComponentSchema {
+export interface FooterSlider extends Struct.ComponentSchema {
   collectionName: 'components_shared_sliders';
   info: {
     description: '';
@@ -65,11 +92,13 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.media': SharedMedia;
-      'shared.quote': SharedQuote;
-      'shared.rich-text': SharedRichText;
-      'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
+      'footer.footer-component': FooterFooterComponent;
+      'footer.footer-content': FooterFooterContent;
+      'footer.media': FooterMedia;
+      'footer.quote': FooterQuote;
+      'footer.rich-text': FooterRichText;
+      'footer.seo': FooterSeo;
+      'footer.slider': FooterSlider;
     }
   }
 }
