@@ -3,12 +3,14 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
   collectionName: 'components_header_simple_url_header_simple_urls';
   info: {
+    description: '';
     displayName: 'Header-Simple-url';
   };
   attributes: {
     ctaText: Schema.Attribute.String;
     text: Schema.Attribute.String;
-    TextColor: Schema.Attribute.String;
+    textColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     url: Schema.Attribute.Text;
   };
 }
