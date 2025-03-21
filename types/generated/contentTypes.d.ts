@@ -420,10 +420,16 @@ export interface ApiBoostBoost extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     MainCTA: Schema.Attribute.Component<'main-cta.main-cta', true>;
     publishedAt: Schema.Attribute.DateTime;
-    sliders: Schema.Attribute.Component<'sliders.sliders', true>;
+    sliders: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     smallText: Schema.Attribute.String;
     Title: Schema.Attribute.String;
-    TopBg: Schema.Attribute.Component<'sliders.sliders', false>;
+    TopBg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     TopBgUrl: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
