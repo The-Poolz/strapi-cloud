@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "link_types",
+  "info": {
+    "singularName": "link-type",
+    "pluralName": "link-types",
+    "displayName": "LinkType"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "IsOnTop": {
+      "type": "boolean"
+    },
+    "DarkIcon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "LightIcon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
