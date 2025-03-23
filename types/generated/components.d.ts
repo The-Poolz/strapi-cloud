@@ -22,7 +22,7 @@ export interface IconTextIconText extends Struct.ComponentSchema {
     displayName: 'iconText';
   };
   attributes: {
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    icon: Schema.Attribute.Media<'images' | 'files'>;
     smallText: Schema.Attribute.String;
     text: Schema.Attribute.String;
   };

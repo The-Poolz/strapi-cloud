@@ -34,24 +34,22 @@
       "component": "main-cta.main-cta"
     },
     "sliders": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+        "files"
+      ]
     },
     "TopBg": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+        "files"
+      ]
     }
   }
 }

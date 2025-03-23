@@ -420,16 +420,10 @@ export interface ApiBoostBoost extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     MainCTA: Schema.Attribute.Component<'main-cta.main-cta', true>;
     publishedAt: Schema.Attribute.DateTime;
-    sliders: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    sliders: Schema.Attribute.Media<'images' | 'files', true>;
     smallText: Schema.Attribute.String;
     Title: Schema.Attribute.String;
-    TopBg: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    TopBg: Schema.Attribute.Media<'images' | 'files', true>;
     TopBgUrl: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -505,6 +499,7 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
 export interface ApiLinkTypeLinkType extends Struct.CollectionTypeSchema {
   collectionName: 'link_types';
   info: {
+    description: '';
     displayName: 'LinkType';
     pluralName: 'link-types';
     singularName: 'link-type';
@@ -516,9 +511,9 @@ export interface ApiLinkTypeLinkType extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    DarkIcon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    DarkIcon: Schema.Attribute.Media<'images' | 'files'>;
     IsOnTop: Schema.Attribute.Boolean;
-    LightIcon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    LightIcon: Schema.Attribute.Media<'images' | 'files'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
