@@ -1,7 +1,8 @@
 {
   "collectionName": "components_section_sections",
   "info": {
-    "displayName": "Section"
+    "displayName": "Section",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -15,14 +16,13 @@
       "type": "text"
     },
     "TopBg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+        "files"
+      ]
     },
     "htmlColorText": {
       "type": "component",
@@ -33,6 +33,17 @@
       "type": "component",
       "repeatable": true,
       "component": "main-cta.main-cta"
+    },
+    "secondCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "main-cta.main-cta"
+    },
+    "secondTitle": {
+      "type": "string"
+    },
+    "SecondSmallText": {
+      "type": "string"
     }
   }
 }

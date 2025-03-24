@@ -615,6 +615,7 @@ export interface ApiLockPoolzTermLockPoolzTerm extends Struct.SingleTypeSchema {
 export interface ApiMainMain extends Struct.SingleTypeSchema {
   collectionName: 'mains';
   info: {
+    description: '';
     displayName: 'Main';
     pluralName: 'mains';
     singularName: 'main';

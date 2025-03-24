@@ -63,6 +63,7 @@ export interface MainCtaMainCta extends Struct.ComponentSchema {
 export interface SectionSection extends Struct.ComponentSchema {
   collectionName: 'components_section_sections';
   info: {
+    description: '';
     displayName: 'Section';
   };
   attributes: {
@@ -71,9 +72,12 @@ export interface SectionSection extends Struct.ComponentSchema {
       false
     >;
     MainCTA: Schema.Attribute.Component<'main-cta.main-cta', true>;
+    secondCta: Schema.Attribute.Component<'main-cta.main-cta', false>;
+    SecondSmallText: Schema.Attribute.String;
+    secondTitle: Schema.Attribute.String;
     smallText: Schema.Attribute.Text;
     Title: Schema.Attribute.String;
-    TopBg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    TopBg: Schema.Attribute.Media<'images' | 'files'>;
     TopBgUrl: Schema.Attribute.Text;
   };
 }
