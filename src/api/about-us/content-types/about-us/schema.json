@@ -1,0 +1,48 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "About Us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "smallText": {
+      "type": "text"
+    },
+    "BOT_CTA_Text": {
+      "type": "text"
+    },
+    "htmlColorText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "html-color-text.html-color-text"
+    },
+    "iconText": {
+      "type": "component",
+      "repeatable": true,
+      "component": "icon-text.icon-text"
+    },
+    "MainCTA": {
+      "type": "component",
+      "repeatable": true,
+      "component": "main-cta.main-cta"
+    },
+    "sliders": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
