@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "invest_terms",
+  "info": {
+    "singularName": "invest-term",
+    "pluralName": "invest-terms",
+    "displayName": "Invest terms"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Value": {
+      "type": "richtext"
+    }
+  }
+}

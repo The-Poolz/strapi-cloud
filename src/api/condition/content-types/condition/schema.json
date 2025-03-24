@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "conditions",
+  "info": {
+    "singularName": "condition",
+    "pluralName": "conditions",
+    "displayName": "Condition"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Value": {
+      "type": "richtext"
+    }
+  }
+}

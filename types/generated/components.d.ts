@@ -15,6 +15,17 @@ export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
   };
 }
 
+export interface HtmlColorTextHtmlColorText extends Struct.ComponentSchema {
+  collectionName: 'components_html_color_text_html_color_texts';
+  info: {
+    displayName: 'htmlColorText';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    url: Schema.Attribute.Text;
+  };
+}
+
 export interface IconTextIconText extends Struct.ComponentSchema {
   collectionName: 'components_icon_text_icon_texts';
   info: {
@@ -49,6 +60,24 @@ export interface MainCtaMainCta extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionSection extends Struct.ComponentSchema {
+  collectionName: 'components_section_sections';
+  info: {
+    displayName: 'Section';
+  };
+  attributes: {
+    htmlColorText: Schema.Attribute.Component<
+      'html-color-text.html-color-text',
+      false
+    >;
+    MainCTA: Schema.Attribute.Component<'main-cta.main-cta', true>;
+    smallText: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
+    TopBg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    TopBgUrl: Schema.Attribute.Text;
+  };
+}
+
 export interface SimpleUrlSimpleUrl extends Struct.ComponentSchema {
   collectionName: 'components_simple_url_simple_urls';
   info: {
@@ -66,8 +95,10 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'header-simple-url.header-simple-url': HeaderSimpleUrlHeaderSimpleUrl;
+      'html-color-text.html-color-text': HtmlColorTextHtmlColorText;
       'icon-text.icon-text': IconTextIconText;
       'main-cta.main-cta': MainCtaMainCta;
+      'section.section': SectionSection;
       'simple-url.simple-url': SimpleUrlSimpleUrl;
     }
   }

@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_section_sections",
+  "info": {
+    "displayName": "Section"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "smallText": {
+      "type": "text"
+    },
+    "TopBgUrl": {
+      "type": "text"
+    },
+    "TopBg": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "htmlColorText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "html-color-text.html-color-text"
+    },
+    "MainCTA": {
+      "type": "component",
+      "repeatable": true,
+      "component": "main-cta.main-cta"
+    }
+  }
+}

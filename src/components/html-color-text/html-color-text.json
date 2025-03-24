@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_html_color_text_html_color_texts",
+  "info": {
+    "displayName": "htmlColorText"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "url": {
+      "type": "text"
+    }
+  }
+}

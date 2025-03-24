@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "lock_poolz_terms",
+  "info": {
+    "singularName": "lock-poolz-term",
+    "pluralName": "lock-poolz-terms",
+    "displayName": "Lock Poolz Terms"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Value": {
+      "type": "richtext"
+    }
+  }
+}
