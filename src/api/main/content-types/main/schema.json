@@ -13,7 +13,7 @@
   "attributes": {
     "sections": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "section.section"
     }
   }
