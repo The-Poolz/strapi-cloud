@@ -548,53 +548,13 @@ export interface ApiChainSettingChainSetting
     draftAndPublish: true;
   };
   attributes: {
-    chainId: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    chainMainCoin: Schema.Attribute.Enumeration<
-      [
-        'ETH',
-        'BTC',
-        'oETH',
-        'BNB',
-        'MATIC',
-        'HECO',
-        'Rinkeby',
-        'BSCTestnet',
-        'Goerli',
-        'Kovan',
-        'Polygon',
-        'PolygonTestnet',
-        'HoubiTestnet',
-        'Avalanche',
-        'AvalancheTestnet',
-        'RopstenTestnet',
-        'FUSE',
-        'Solana',
-        'CKB',
-        'DOT',
-        'GLMR',
-        'ONE',
-        'TOMO',
-        'NEAR',
-        'aETH',
-        'mETH',
-        'Manta',
-        'bETH',
-        'Ton',
-        'OAS',
-        'abETH',
-      ]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+    chain: Schema.Attribute.Relation<'oneToOne', 'api::chain.chain'>;
     colorIcon: Schema.Attribute.Component<'color-icon.color-icon', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     DisplayText: Schema.Attribute.String;
     IsEVM: Schema.Attribute.Boolean;
-    isTest: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -609,6 +569,38 @@ export interface ApiChainSettingChainSetting
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     WhiteLogo: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
+export interface ApiChainChain extends Struct.CollectionTypeSchema {
+  collectionName: 'chains';
+  info: {
+    displayName: 'Chain';
+    pluralName: 'chains';
+    singularName: 'chain';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    chain_setting: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::chain-setting.chain-setting'
+    >;
+    chainId: Schema.Attribute.BigInteger;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    isTest: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::chain.chain'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    symbol: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1580,6 +1572,7 @@ declare module '@strapi/strapi' {
       'api::buy-poolz.buy-poolz': ApiBuyPoolzBuyPoolz;
       'api::buy-with.buy-with': ApiBuyWithBuyWith;
       'api::chain-setting.chain-setting': ApiChainSettingChainSetting;
+      'api::chain.chain': ApiChainChain;
       'api::condition.condition': ApiConditionCondition;
       'api::contract.contract': ApiContractContract;
       'api::default-wallet.default-wallet': ApiDefaultWalletDefaultWallet;

@@ -12,52 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "chainMainCoin": {
-      "type": "enumeration",
-      "enum": [
-        "ETH",
-        "BTC",
-        "oETH",
-        "BNB",
-        "MATIC",
-        "HECO",
-        "Rinkeby",
-        "BSCTestnet",
-        "Goerli",
-        "Kovan",
-        "Polygon",
-        "PolygonTestnet",
-        "HoubiTestnet",
-        "Avalanche",
-        "AvalancheTestnet",
-        "RopstenTestnet",
-        "FUSE",
-        "Solana",
-        "CKB",
-        "DOT",
-        "GLMR",
-        "ONE",
-        "TOMO",
-        "NEAR",
-        "aETH",
-        "mETH",
-        "Manta",
-        "bETH",
-        "Ton",
-        "OAS",
-        "abETH"
-      ],
-      "required": true,
-      "unique": true
-    },
-    "isTest": {
-      "type": "boolean"
-    },
-    "chainId": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "IsEVM": {
       "type": "boolean"
     },
@@ -87,6 +41,12 @@
     },
     "scannerTxUrl": {
       "type": "string"
+    },
+    "chain": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chain.chain",
+      "inversedBy": "chain_setting"
     }
   }
 }

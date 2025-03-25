@@ -102,7 +102,7 @@ export interface SectionSection extends Struct.ComponentSchema {
       false
     >;
     MainCTA: Schema.Attribute.Component<'main-cta.main-cta', true>;
-    secondCta: Schema.Attribute.Component<'main-cta.main-cta', false>;
+    secondCta: Schema.Attribute.Component<'main-cta.main-cta', true>;
     SecondSmallText: Schema.Attribute.String;
     secondTitle: Schema.Attribute.String;
     smallText: Schema.Attribute.Text;
