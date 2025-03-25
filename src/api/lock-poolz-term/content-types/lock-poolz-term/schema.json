@@ -4,7 +4,8 @@
   "info": {
     "singularName": "lock-poolz-term",
     "pluralName": "lock-poolz-terms",
-    "displayName": "Lock Poolz Terms"
+    "displayName": "Lock Poolz Terms",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

@@ -1,0 +1,93 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chain_settings",
+  "info": {
+    "singularName": "chain-setting",
+    "pluralName": "chain-settings",
+    "displayName": "Chain Setting",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "chainMainCoin": {
+      "type": "enumeration",
+      "enum": [
+        "ETH",
+        "BTC",
+        "oETH",
+        "BNB",
+        "MATIC",
+        "HECO",
+        "Rinkeby",
+        "BSCTestnet",
+        "Goerli",
+        "Kovan",
+        "Polygon",
+        "PolygonTestnet",
+        "HoubiTestnet",
+        "Avalanche",
+        "AvalancheTestnet",
+        "RopstenTestnet",
+        "FUSE",
+        "Solana",
+        "CKB",
+        "DOT",
+        "GLMR",
+        "ONE",
+        "TOMO",
+        "NEAR",
+        "aETH",
+        "mETH",
+        "Manta",
+        "bETH",
+        "Ton",
+        "OAS",
+        "abETH"
+      ],
+      "required": true,
+      "unique": true
+    },
+    "isTest": {
+      "type": "boolean"
+    },
+    "chainId": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "IsEVM": {
+      "type": "boolean"
+    },
+    "DisplayText": {
+      "type": "string"
+    },
+    "WhiteLogo": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "multiple": false,
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Show": {
+      "type": "boolean"
+    },
+    "colorIcon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "color-icon.color-icon"
+    },
+    "ShowInBoutique": {
+      "type": "boolean"
+    },
+    "scannerTxUrl": {
+      "type": "string"
+    }
+  }
+}

@@ -22,7 +22,7 @@
     },
     "htmlColorText": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "html-color-text.html-color-text"
     },
     "iconText": {

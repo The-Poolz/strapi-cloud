@@ -1,5 +1,33 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ChainAddressesChainAddresses extends Struct.ComponentSchema {
+  collectionName: 'components_chain_addresses_chain_addresses';
+  info: {
+    description: '';
+    icon: 'address-card';
+    name: 'ChainAddresses';
+  };
+  attributes: {
+    Address: Schema.Attribute.String;
+    chain_setting: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::chain-setting.chain-setting'
+    >;
+  };
+}
+
+export interface ColorIconColorIcon extends Struct.ComponentSchema {
+  collectionName: 'components_color_icon_color_icons';
+  info: {
+    description: '';
+    displayName: 'colorIcon';
+  };
+  attributes: {
+    ColorCode: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
 export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
   collectionName: 'components_header_simple_url_header_simple_urls';
   info: {
@@ -98,6 +126,8 @@ export interface SimpleUrlSimpleUrl extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'chain-addresses.chain-addresses': ChainAddressesChainAddresses;
+      'color-icon.color-icon': ColorIconColorIcon;
       'header-simple-url.header-simple-url': HeaderSimpleUrlHeaderSimpleUrl;
       'html-color-text.html-color-text': HtmlColorTextHtmlColorText;
       'icon-text.icon-text': IconTextIconText;

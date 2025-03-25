@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grow_badges",
+  "info": {
+    "singularName": "grow-badge",
+    "pluralName": "grow-badges",
+    "displayName": "GrowBadge",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "TextColor": {
+      "type": "string"
+    },
+    "BackgroundColor": {
+      "type": "string"
+    },
+    "TooltipText": {
+      "type": "text"
+    },
+    "grows": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::grow.grow",
+      "inversedBy": "grow_badges"
+    }
+  }
+}

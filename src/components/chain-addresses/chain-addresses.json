@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_chain_addresses_chain_addresses",
+  "info": {
+    "name": "ChainAddresses",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "chain_setting": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chain-setting.chain-setting"
+    },
+    "Address": {
+      "type": "string"
+    }
+  }
+}

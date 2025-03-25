@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_color_icon_color_icons",
+  "info": {
+    "displayName": "colorIcon",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ColorCode": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "multiple": false,
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

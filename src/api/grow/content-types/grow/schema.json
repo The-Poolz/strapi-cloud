@@ -1,0 +1,106 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grows",
+  "info": {
+    "singularName": "grow",
+    "pluralName": "grows",
+    "displayName": "Grows",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "reward": {
+      "type": "enumeration",
+      "enum": [
+        "Token",
+        "Whitelist",
+        "Stable",
+        "NFT",
+        "IDO_Token"
+      ]
+    },
+    "text": {
+      "type": "text"
+    },
+    "mainIcon": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "multiple": false,
+      "required": false,
+      "pluginOptions": {}
+    },
+    "projectName": {
+      "type": "string"
+    },
+    "participants": {
+      "type": "integer"
+    },
+    "mainPicture": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "multiple": false,
+      "required": false,
+      "pluginOptions": {}
+    },
+    "startTime": {
+      "type": "datetime"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "data_ccode": {
+      "type": "string"
+    },
+    "DescriptionMainText": {
+      "type": "text"
+    },
+    "DescriptionSubText": {
+      "type": "text"
+    },
+    "finishTime": {
+      "type": "datetime"
+    },
+    "Banner": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "multiple": false,
+      "required": false,
+      "pluginOptions": {}
+    },
+    "BannerUrl": {
+      "type": "string"
+    },
+    "BannerText": {
+      "type": "text"
+    },
+    "grow_badges": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::grow-badge.grow-badge",
+      "mappedBy": "grows"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "showInMainBanner": {
+      "type": "boolean"
+    },
+    "Show": {
+      "type": "boolean"
+    }
+  }
+}

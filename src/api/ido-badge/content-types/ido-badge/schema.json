@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ido_badges",
+  "info": {
+    "singularName": "ido-badge",
+    "pluralName": "ido-badges",
+    "displayName": "IdoBadge",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "ColorCode": {
+      "type": "string"
+    },
+    "ExplainText": {
+      "type": "text"
+    }
+  }
+}

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "invest-term",
     "pluralName": "invest-terms",
-    "displayName": "Invest terms"
+    "displayName": "Invest terms",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "default_wallets",
+  "info": {
+    "singularName": "default-wallet",
+    "pluralName": "default-wallets",
+    "displayName": "Default Wallet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "Icon": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "multiple": false,
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}
