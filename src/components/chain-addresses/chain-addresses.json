@@ -3,7 +3,8 @@
   "info": {
     "name": "ChainAddresses",
     "icon": "address-card",
-    "description": ""
+    "description": "",
+    "displayName": "address on chain"
   },
   "options": {},
   "attributes": {
@@ -13,7 +14,9 @@
       "target": "api::chain-setting.chain-setting"
     },
     "Address": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "regex": "^0x[a-fA-F0-9]{40}$"
     }
   }
 }

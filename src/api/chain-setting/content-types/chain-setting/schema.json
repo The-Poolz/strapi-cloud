@@ -66,13 +66,12 @@
     },
     "WhiteLogo": {
       "type": "media",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
       "multiple": false,
       "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
       "pluginOptions": {}
     },
     "Show": {

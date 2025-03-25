@@ -14,20 +14,16 @@
     "Name": {
       "type": "string"
     },
-    "TextColor": {
-      "type": "string"
-    },
     "BackgroundColor": {
       "type": "string"
     },
     "TooltipText": {
       "type": "text"
     },
-    "grows": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::grow.grow",
-      "inversedBy": "grow_badges"
+    "Color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
     }
   }
 }

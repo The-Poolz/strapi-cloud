@@ -19,20 +19,20 @@
         "Stable",
         "NFT",
         "IDO_Token"
-      ]
+      ],
+      "required": true
     },
     "text": {
       "type": "text"
     },
     "mainIcon": {
       "type": "media",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
       "multiple": false,
       "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
       "pluginOptions": {}
     },
     "projectName": {
@@ -43,13 +43,12 @@
     },
     "mainPicture": {
       "type": "media",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
       "multiple": false,
       "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
       "pluginOptions": {}
     },
     "startTime": {
@@ -72,13 +71,12 @@
     },
     "Banner": {
       "type": "media",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
       "multiple": false,
       "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
       "pluginOptions": {}
     },
     "BannerUrl": {
@@ -86,12 +84,6 @@
     },
     "BannerText": {
       "type": "text"
-    },
-    "grow_badges": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::grow-badge.grow-badge",
-      "mappedBy": "grows"
     },
     "order": {
       "type": "integer"
@@ -101,6 +93,11 @@
     },
     "Show": {
       "type": "boolean"
+    },
+    "grow_badge": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::grow-badge.grow-badge"
     }
   }
 }

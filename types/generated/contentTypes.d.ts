@@ -484,7 +484,7 @@ export interface ApiBuyPoolzBuyPoolz extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    Icon: Schema.Attribute.Media<'images' | 'files'>;
     IsDex: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -527,7 +527,7 @@ export interface ApiBuyWithBuyWith extends Struct.CollectionTypeSchema {
       'api::buy-with.buy-with'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -608,7 +608,7 @@ export interface ApiChainSettingChainSetting
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    WhiteLogo: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    WhiteLogo: Schema.Attribute.Media<'images' | 'files'>;
   };
 }
 
@@ -693,7 +693,7 @@ export interface ApiDefaultWalletDefaultWallet
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    Icon: Schema.Attribute.Media<'images' | 'files'>;
     Link: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -756,10 +756,11 @@ export interface ApiGrowBadgeGrowBadge extends Struct.CollectionTypeSchema {
   };
   attributes: {
     BackgroundColor: Schema.Attribute.String;
+    Color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    grows: Schema.Attribute.Relation<'manyToMany', 'api::grow.grow'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -768,7 +769,6 @@ export interface ApiGrowBadgeGrowBadge extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    TextColor: Schema.Attribute.String;
     TooltipText: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -788,7 +788,7 @@ export interface ApiGrowGrow extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    Banner: Schema.Attribute.Media<'images' | 'files'>;
     BannerText: Schema.Attribute.Text;
     BannerUrl: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -798,22 +798,23 @@ export interface ApiGrowGrow extends Struct.CollectionTypeSchema {
     DescriptionMainText: Schema.Attribute.Text;
     DescriptionSubText: Schema.Attribute.Text;
     finishTime: Schema.Attribute.DateTime;
-    grow_badges: Schema.Attribute.Relation<
-      'manyToMany',
+    grow_badge: Schema.Attribute.Relation<
+      'oneToOne',
       'api::grow-badge.grow-badge'
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::grow.grow'> &
       Schema.Attribute.Private;
-    mainIcon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    mainPicture: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    mainIcon: Schema.Attribute.Media<'images' | 'files'>;
+    mainPicture: Schema.Attribute.Media<'images' | 'files'>;
     order: Schema.Attribute.Integer;
     participants: Schema.Attribute.Integer;
     projectName: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     reward: Schema.Attribute.Enumeration<
       ['Token', 'Whitelist', 'Stable', 'NFT', 'IDO_Token']
-    >;
+    > &
+      Schema.Attribute.Required;
     Show: Schema.Attribute.Boolean;
     showInMainBanner: Schema.Attribute.Boolean;
     startTime: Schema.Attribute.DateTime;
@@ -869,7 +870,8 @@ export interface ApiIdoBadgeIdoBadge extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    ColorCode: Schema.Attribute.String;
+    Color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -932,7 +934,7 @@ export interface ApiInvestorInvestor extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    Icon: Schema.Attribute.Media<'images' | 'files'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
