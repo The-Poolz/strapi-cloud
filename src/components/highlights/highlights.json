@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_highlights_highlights",
+  "info": {
+    "displayName": "Highlights"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "our_partners",
+  "info": {
+    "singularName": "our-partner",
+    "pluralName": "our-partners",
+    "displayName": "OurPartner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "DarkLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {}
+    }
+  }
+}

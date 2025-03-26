@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_overview_overviews",
+  "info": {
+    "displayName": "Overview"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "BoldText": {
+      "type": "string"
+    },
+    "Text": {
+      "type": "text"
+    }
+  }
+}

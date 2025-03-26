@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "poolz_boutiques",
+  "info": {
+    "singularName": "poolz-boutique",
+    "pluralName": "poolz-boutiques",
+    "displayName": "PoolzBoutique"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "projectName": {
+      "type": "string"
+    },
+    "TokenAddress": {
+      "type": "string"
+    },
+    "chainID": {
+      "type": "integer"
+    },
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {}
+    },
+    "WebSite": {
+      "type": "string"
+    },
+    "Twitter": {
+      "type": "string"
+    },
+    "Telegram": {
+      "type": "string"
+    },
+    "Discord": {
+      "type": "string"
+    },
+    "R": {
+      "type": "integer"
+    },
+    "G": {
+      "type": "integer"
+    },
+    "B": {
+      "type": "integer"
+    }
+  }
+}

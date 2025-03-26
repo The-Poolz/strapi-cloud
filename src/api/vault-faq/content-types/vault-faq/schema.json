@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vault_faqs",
+  "info": {
+    "singularName": "vault-faq",
+    "pluralName": "vault-faqs",
+    "displayName": "VaultFAQ"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "ShortText": {
+      "type": "string"
+    },
+    "LongText": {
+      "type": "text"
+    }
+  }
+}

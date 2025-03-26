@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "open_grants",
+  "info": {
+    "singularName": "open-grant",
+    "pluralName": "open-grants",
+    "displayName": "OpenGrant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Text": {
+      "type": "text"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {}
+    }
+  }
+}

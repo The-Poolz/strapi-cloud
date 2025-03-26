@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_synthetic_zone_syntetics",
+  "info": {
+    "displayName": "Syntetic"
+  },
+  "options": {},
+  "attributes": {
+    "TokenAddress": {
+      "type": "string"
+    },
+    "chain_setting": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chain-setting.chain-setting"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_dictionary_links",
+  "info": {
+    "displayName": "Dictionary-Links",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

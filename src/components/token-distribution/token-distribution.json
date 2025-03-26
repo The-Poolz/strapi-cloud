@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_token_distribution_token_distributions",
+  "info": {
+    "displayName": "TokenDistribution"
+  },
+  "options": {},
+  "attributes": {
+    "Unlock": {
+      "type": "datetime"
+    },
+    "Ratio": {
+      "type": "decimal"
+    },
+    "IsTimeTBA": {
+      "type": "boolean"
+    },
+    "StartTime": {
+      "type": "datetime"
+    }
+  }
+}

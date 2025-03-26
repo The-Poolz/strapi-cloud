@@ -30,6 +30,42 @@ export interface ColorIconColorIcon extends Struct.ComponentSchema {
   };
 }
 
+export interface DictionaryLinks extends Struct.ComponentSchema {
+  collectionName: 'components_dictionary_links';
+  info: {
+    description: '';
+    displayName: 'Dictionary-Links';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface FullTokenDistributionFullTokenDistribution
+  extends Struct.ComponentSchema {
+  collectionName: 'components_full_token_distribution_full_token_distributions';
+  info: {
+    displayName: 'FullTokenDistribution';
+  };
+  attributes: {
+    DistributionType: Schema.Attribute.String;
+    Monthly: Schema.Attribute.Component<
+      'token-distribution.token-distribution',
+      true
+    >;
+    non_evm_chain: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::non-evm-chain.non-evm-chain'
+    >;
+    Text: Schema.Attribute.Text;
+    TGE: Schema.Attribute.Component<
+      'token-distribution.token-distribution',
+      false
+    >;
+  };
+}
+
 export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
   collectionName: 'components_header_simple_url_header_simple_urls';
   info: {
@@ -42,6 +78,16 @@ export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
     textColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     url: Schema.Attribute.Text;
+  };
+}
+
+export interface HighlightsHighlights extends Struct.ComponentSchema {
+  collectionName: 'components_highlights_highlights';
+  info: {
+    displayName: 'Highlights';
+  };
+  attributes: {
+    Value: Schema.Attribute.String;
   };
 }
 
@@ -69,6 +115,17 @@ export interface IconTextIconText extends Struct.ComponentSchema {
   };
 }
 
+export interface InvestorsInvestors extends Struct.ComponentSchema {
+  collectionName: 'components_investors_investors';
+  info: {
+    displayName: 'Investors';
+  };
+  attributes: {
+    Category: Schema.Attribute.String;
+    investor: Schema.Attribute.Relation<'manyToMany', 'api::investor.investor'>;
+  };
+}
+
 export interface MainCtaMainCta extends Struct.ComponentSchema {
   collectionName: 'components_main_cta_main_ctas';
   info: {
@@ -87,6 +144,18 @@ export interface MainCtaMainCta extends Struct.ComponentSchema {
     TextColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     url: Schema.Attribute.Text;
+  };
+}
+
+export interface OverviewOverview extends Struct.ComponentSchema {
+  collectionName: 'components_overview_overviews';
+  info: {
+    displayName: 'Overview';
+  };
+  attributes: {
+    BoldText: Schema.Attribute.String;
+    Name: Schema.Attribute.String;
+    Text: Schema.Attribute.Text;
   };
 }
 
@@ -125,17 +194,114 @@ export interface SimpleUrlSimpleUrl extends Struct.ComponentSchema {
   };
 }
 
+export interface SmartLinksSmartLinks extends Struct.ComponentSchema {
+  collectionName: 'components_smart_links_smart_links';
+  info: {
+    displayName: 'SmartLinks';
+  };
+  attributes: {
+    link_type: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::link-type.link-type'
+    >;
+    URL: Schema.Attribute.String;
+  };
+}
+
+export interface SyntheticZoneSyntetic extends Struct.ComponentSchema {
+  collectionName: 'components_synthetic_zone_syntetics';
+  info: {
+    displayName: 'Syntetic';
+  };
+  attributes: {
+    chain_setting: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::chain-setting.chain-setting'
+    >;
+    TokenAddress: Schema.Attribute.String;
+  };
+}
+
+export interface TokenDistributionTokenDistribution
+  extends Struct.ComponentSchema {
+  collectionName: 'components_token_distribution_token_distributions';
+  info: {
+    displayName: 'TokenDistribution';
+  };
+  attributes: {
+    IsTimeTBA: Schema.Attribute.Boolean;
+    Ratio: Schema.Attribute.Decimal;
+    StartTime: Schema.Attribute.DateTime;
+    Unlock: Schema.Attribute.DateTime;
+  };
+}
+
+export interface TokenomicsTokenomics extends Struct.ComponentSchema {
+  collectionName: 'components_tokenomics_tokenomics';
+  info: {
+    displayName: 'Tokenomics';
+  };
+  attributes: {
+    CirculationSupply: Schema.Attribute.String;
+    MarketCap: Schema.Attribute.String;
+    Symbol: Schema.Attribute.String;
+    TGEMarketCap: Schema.Attribute.String;
+    TotalRaise: Schema.Attribute.String;
+    TotalSupply: Schema.Attribute.String;
+    USDPrice: Schema.Attribute.Decimal;
+    VisualInfo: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
+export interface UploadPoolUploadPool extends Struct.ComponentSchema {
+  collectionName: 'components_upload_pool_upload_pools';
+  info: {
+    displayName: 'Upload pool';
+  };
+  attributes: {
+    buy_with: Schema.Attribute.Relation<'oneToOne', 'api::buy-with.buy-with'>;
+    Participants: Schema.Attribute.Integer;
+    PublicRate: Schema.Attribute.Decimal;
+    TotalTokens: Schema.Attribute.Decimal;
+    WhitelistRate: Schema.Attribute.Decimal;
+  };
+}
+
+export interface VisualTextVisualText extends Struct.ComponentSchema {
+  collectionName: 'components_visual_text_visual_texts';
+  info: {
+    displayName: 'VisualText';
+  };
+  attributes: {
+    Highlights: Schema.Attribute.Component<'highlights.highlights', true>;
+    Overview: Schema.Attribute.Component<'overview.overview', true>;
+    SmartLinks: Schema.Attribute.Component<'smart-links.smart-links', true>;
+    Tokenomics: Schema.Attribute.Component<'tokenomics.tokenomics', false>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'chain-addresses.chain-addresses': ChainAddressesChainAddresses;
       'color-icon.color-icon': ColorIconColorIcon;
+      'dictionary.links': DictionaryLinks;
+      'full-token-distribution.full-token-distribution': FullTokenDistributionFullTokenDistribution;
       'header-simple-url.header-simple-url': HeaderSimpleUrlHeaderSimpleUrl;
+      'highlights.highlights': HighlightsHighlights;
       'html-color-text.html-color-text': HtmlColorTextHtmlColorText;
       'icon-text.icon-text': IconTextIconText;
+      'investors.investors': InvestorsInvestors;
       'main-cta.main-cta': MainCtaMainCta;
+      'overview.overview': OverviewOverview;
       'section.section': SectionSection;
       'simple-url.simple-url': SimpleUrlSimpleUrl;
+      'smart-links.smart-links': SmartLinksSmartLinks;
+      'synthetic-zone.syntetic': SyntheticZoneSyntetic;
+      'token-distribution.token-distribution': TokenDistributionTokenDistribution;
+      'tokenomics.tokenomics': TokenomicsTokenomics;
+      'upload-pool.upload-pool': UploadPoolUploadPool;
+      'visual-text.visual-text': VisualTextVisualText;
     }
   }
 }

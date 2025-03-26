@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "market_cap_badges",
+  "info": {
+    "singularName": "market-cap-badge",
+    "pluralName": "market-cap-badges",
+    "displayName": "MarketCapBadge"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Link": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {}
+    }
+  }
+}

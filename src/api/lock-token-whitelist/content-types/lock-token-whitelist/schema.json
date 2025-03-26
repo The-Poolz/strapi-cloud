@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lock_token_whitelists",
+  "info": {
+    "singularName": "lock-token-whitelist",
+    "pluralName": "lock-token-whitelists",
+    "displayName": "Lock Token Whitelist"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "OriginalToken",
+        "Envelope",
+        "Synthetic",
+        "LockDealNFT"
+      ]
+    },
+    "chain_settings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::chain-setting.chain-setting"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "non_evm_chains",
+  "info": {
+    "singularName": "non-evm-chain",
+    "pluralName": "non-evm-chains",
+    "displayName": "Non Evm Chain"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {}
+    },
+    "DisplayText": {
+      "type": "string"
+    },
+    "Regex": {
+      "type": "string"
+    }
+  }
+}

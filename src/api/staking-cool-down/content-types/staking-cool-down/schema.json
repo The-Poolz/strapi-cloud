@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "staking_cool_downs",
+  "info": {
+    "singularName": "staking-cool-down",
+    "pluralName": "staking-cool-downs",
+    "displayName": "StakingCoolDown"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Amount": {
+      "type": "string"
+    },
+    "CoolDownPeriod": {
+      "type": "string"
+    },
+    "type": {
+      "type": "integer"
+    },
+    "text": {
+      "type": "text"
+    }
+  }
+}

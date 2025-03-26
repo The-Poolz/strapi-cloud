@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "page_infos",
+  "info": {
+    "singularName": "page-info",
+    "pluralName": "page-infos",
+    "displayName": "PageInfo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Link": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    }
+  }
+}

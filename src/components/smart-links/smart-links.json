@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_smart_links_smart_links",
+  "info": {
+    "displayName": "SmartLinks"
+  },
+  "options": {},
+  "attributes": {
+    "URL": {
+      "type": "string"
+    },
+    "link_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::link-type.link-type"
+    }
+  }
+}

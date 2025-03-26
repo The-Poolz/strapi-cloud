@@ -1002,6 +1002,43 @@ export interface ApiLockPoolzTermLockPoolzTerm extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLockTokenWhitelistLockTokenWhitelist
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'lock_token_whitelists';
+  info: {
+    displayName: 'Lock Token Whitelist';
+    pluralName: 'lock-token-whitelists';
+    singularName: 'lock-token-whitelist';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Address: Schema.Attribute.String;
+    chain_settings: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::chain-setting.chain-setting'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lock-token-whitelist.lock-token-whitelist'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Type: Schema.Attribute.Enumeration<
+      ['OriginalToken', 'Envelope', 'Synthetic', 'LockDealNFT']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMainMain extends Struct.SingleTypeSchema {
   collectionName: 'mains';
   info: {
@@ -1025,6 +1062,228 @@ export interface ApiMainMain extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMarketCapBadgeMarketCapBadge
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'market_cap_badges';
+  info: {
+    displayName: 'MarketCapBadge';
+    pluralName: 'market-cap-badges';
+    singularName: 'market-cap-badge';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+    Link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::market-cap-badge.market-cap-badge'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMediaKitMediaKit extends Struct.CollectionTypeSchema {
+  collectionName: 'media_kits';
+  info: {
+    description: '';
+    displayName: 'Media Kits';
+    pluralName: 'media-kits';
+    singularName: 'media-kit';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Link: Schema.Attribute.Component<'dictionary.links', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::media-kit.media-kit'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Text: Schema.Attribute.RichText;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNonEvmChainNonEvmChain extends Struct.CollectionTypeSchema {
+  collectionName: 'non_evm_chains';
+  info: {
+    displayName: 'Non Evm Chain';
+    pluralName: 'non-evm-chains';
+    singularName: 'non-evm-chain';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DisplayText: Schema.Attribute.String;
+    Icon: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::non-evm-chain.non-evm-chain'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Regex: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOpenGrantOpenGrant extends Struct.CollectionTypeSchema {
+  collectionName: 'open_grants';
+  info: {
+    displayName: 'OpenGrant';
+    pluralName: 'open-grants';
+    singularName: 'open-grant';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+    Link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::open-grant.open-grant'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Text: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurPartnerOurPartner extends Struct.CollectionTypeSchema {
+  collectionName: 'our_partners';
+  info: {
+    displayName: 'OurPartner';
+    pluralName: 'our-partners';
+    singularName: 'our-partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DarkLogo: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-partner.our-partner'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPageInfoPageInfo extends Struct.CollectionTypeSchema {
+  collectionName: 'page_infos';
+  info: {
+    displayName: 'PageInfo';
+    pluralName: 'page-infos';
+    singularName: 'page-info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.RichText;
+    Link: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-info.page-info'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPoolzBoutiquePoolzBoutique
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'poolz_boutiques';
+  info: {
+    displayName: 'PoolzBoutique';
+    pluralName: 'poolz-boutiques';
+    singularName: 'poolz-boutique';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    B: Schema.Attribute.Integer;
+    chainID: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Discord: Schema.Attribute.String;
+    G: Schema.Attribute.Integer;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::poolz-boutique.poolz-boutique'
+    > &
+      Schema.Attribute.Private;
+    Logo: Schema.Attribute.Media<'images' | 'files'>;
+    projectName: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    R: Schema.Attribute.Integer;
+    Telegram: Schema.Attribute.String;
+    TokenAddress: Schema.Attribute.String;
+    Twitter: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    WebSite: Schema.Attribute.String;
   };
 }
 
@@ -1054,6 +1313,128 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Value: Schema.Attribute.RichText;
+  };
+}
+
+export interface ApiProjectsInformationProjectsInformation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'projects_informations';
+  info: {
+    displayName: 'ProjectsInformation';
+    pluralName: 'projects-informations';
+    singularName: 'projects-information';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ATHROI: Schema.Attribute.Decimal;
+    Block: Schema.Attribute.Media<'images'>;
+    blockLocations: Schema.Attribute.String;
+    chain_setting: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::chain-setting.chain-setting'
+    >;
+    coingeckoKey: Schema.Attribute.String;
+    coinmarketcapKey: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    CryptorankKey: Schema.Attribute.String;
+    FinishTime: Schema.Attribute.DateTime;
+    FullTokenDistribution: Schema.Attribute.Component<
+      'full-token-distribution.full-token-distribution',
+      false
+    >;
+    ido_badge: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::ido-badge.ido-badge'
+    >;
+    Investors: Schema.Attribute.Component<'investors.investors', true>;
+    IsShow: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    IsTimeTBA: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::projects-information.projects-information'
+    > &
+      Schema.Attribute.Private;
+    Logo: Schema.Attribute.Media<'images'>;
+    MainListShow: Schema.Attribute.Boolean;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    Original: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
+    PoolzBackId: Schema.Attribute.BigInteger;
+    publishedAt: Schema.Attribute.DateTime;
+    StartTime: Schema.Attribute.DateTime;
+    Syntetic: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    UploadPool: Schema.Attribute.Component<'upload-pool.upload-pool', false>;
+    VisualText: Schema.Attribute.Component<'visual-text.visual-text', false>;
+    Warning_Text: Schema.Attribute.Text;
+    WhitelistId: Schema.Attribute.BigInteger;
+  };
+}
+
+export interface ApiStakingCoolDownStakingCoolDown
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'staking_cool_downs';
+  info: {
+    displayName: 'StakingCoolDown';
+    pluralName: 'staking-cool-downs';
+    singularName: 'staking-cool-down';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Amount: Schema.Attribute.String;
+    CoolDownPeriod: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::staking-cool-down.staking-cool-down'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.Text;
+    type: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiVaultFaqVaultFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'vault_faqs';
+  info: {
+    displayName: 'VaultFAQ';
+    pluralName: 'vault-faqs';
+    singularName: 'vault-faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vault-faq.vault-faq'
+    > &
+      Schema.Attribute.Private;
+    LongText: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    ShortText: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1585,8 +1966,19 @@ declare module '@strapi/strapi' {
       'api::investor.investor': ApiInvestorInvestor;
       'api::link-type.link-type': ApiLinkTypeLinkType;
       'api::lock-poolz-term.lock-poolz-term': ApiLockPoolzTermLockPoolzTerm;
+      'api::lock-token-whitelist.lock-token-whitelist': ApiLockTokenWhitelistLockTokenWhitelist;
       'api::main.main': ApiMainMain;
+      'api::market-cap-badge.market-cap-badge': ApiMarketCapBadgeMarketCapBadge;
+      'api::media-kit.media-kit': ApiMediaKitMediaKit;
+      'api::non-evm-chain.non-evm-chain': ApiNonEvmChainNonEvmChain;
+      'api::open-grant.open-grant': ApiOpenGrantOpenGrant;
+      'api::our-partner.our-partner': ApiOurPartnerOurPartner;
+      'api::page-info.page-info': ApiPageInfoPageInfo;
+      'api::poolz-boutique.poolz-boutique': ApiPoolzBoutiquePoolzBoutique;
       'api::privacy.privacy': ApiPrivacyPrivacy;
+      'api::projects-information.projects-information': ApiProjectsInformationProjectsInformation;
+      'api::staking-cool-down.staking-cool-down': ApiStakingCoolDownStakingCoolDown;
+      'api::vault-faq.vault-faq': ApiVaultFaqVaultFaq;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_visual_text_visual_texts",
+  "info": {
+    "displayName": "VisualText"
+  },
+  "options": {},
+  "attributes": {
+    "Highlights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "highlights.highlights"
+    },
+    "Overview": {
+      "type": "component",
+      "repeatable": true,
+      "component": "overview.overview"
+    },
+    "Tokenomics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "tokenomics.tokenomics"
+    },
+    "SmartLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "smart-links.smart-links"
+    }
+  }
+}

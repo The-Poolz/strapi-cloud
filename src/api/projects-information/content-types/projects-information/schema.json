@@ -1,0 +1,117 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects_informations",
+  "info": {
+    "singularName": "projects-information",
+    "pluralName": "projects-informations",
+    "displayName": "ProjectsInformation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "CryptorankKey": {
+      "type": "string"
+    },
+    "PoolzBackId": {
+      "type": "biginteger"
+    },
+    "WhitelistId": {
+      "type": "biginteger"
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "Block": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "StartTime": {
+      "type": "datetime"
+    },
+    "FinishTime": {
+      "type": "datetime"
+    },
+    "VisualText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "visual-text.visual-text"
+    },
+    "UploadPool": {
+      "type": "component",
+      "repeatable": false,
+      "component": "upload-pool.upload-pool"
+    },
+    "IsShow": {
+      "type": "boolean",
+      "required": true
+    },
+    "IsTimeTBA": {
+      "type": "boolean",
+      "required": true
+    },
+    "Syntetic": {
+      "type": "component",
+      "repeatable": false,
+      "component": "synthetic-zone.syntetic"
+    },
+    "Original": {
+      "type": "component",
+      "repeatable": false,
+      "component": "synthetic-zone.syntetic"
+    },
+    "Investors": {
+      "type": "component",
+      "repeatable": true,
+      "component": "investors.investors"
+    },
+    "coinmarketcapKey": {
+      "type": "string"
+    },
+    "coingeckoKey": {
+      "type": "string"
+    },
+    "MainListShow": {
+      "type": "boolean"
+    },
+    "FullTokenDistribution": {
+      "type": "component",
+      "repeatable": false,
+      "component": "full-token-distribution.full-token-distribution"
+    },
+    "ATHROI": {
+      "type": "decimal"
+    },
+    "chain_setting": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chain-setting.chain-setting"
+    },
+    "ido_badge": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ido-badge.ido-badge"
+    },
+    "Warning_Text": {
+      "type": "text"
+    },
+    "blockLocations": {
+      "type": "string"
+    }
+  }
+}

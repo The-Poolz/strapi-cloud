@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_upload_pool_upload_pools",
+  "info": {
+    "displayName": "Upload pool"
+  },
+  "options": {},
+  "attributes": {
+    "WhitelistRate": {
+      "type": "decimal"
+    },
+    "PublicRate": {
+      "type": "decimal"
+    },
+    "TotalTokens": {
+      "type": "decimal"
+    },
+    "buy_with": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::buy-with.buy-with"
+    },
+    "Participants": {
+      "type": "integer"
+    }
+  }
+}

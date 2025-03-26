@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_tokenomics_tokenomics",
+  "info": {
+    "displayName": "Tokenomics"
+  },
+  "options": {},
+  "attributes": {
+    "VisualInfo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {}
+    },
+    "MarketCap": {
+      "type": "string"
+    },
+    "TGEMarketCap": {
+      "type": "string"
+    },
+    "Symbol": {
+      "type": "string"
+    },
+    "CirculationSupply": {
+      "type": "string"
+    },
+    "TotalSupply": {
+      "type": "string"
+    },
+    "USDPrice": {
+      "type": "decimal"
+    },
+    "TotalRaise": {
+      "type": "string"
+    }
+  }
+}
