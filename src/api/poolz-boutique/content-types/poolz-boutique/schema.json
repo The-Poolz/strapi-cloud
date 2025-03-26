@@ -4,7 +4,8 @@
   "info": {
     "singularName": "poolz-boutique",
     "pluralName": "poolz-boutiques",
-    "displayName": "PoolzBoutique"
+    "displayName": "PoolzBoutique",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -41,14 +42,10 @@
     "Discord": {
       "type": "string"
     },
-    "R": {
-      "type": "integer"
-    },
-    "G": {
-      "type": "integer"
-    },
-    "B": {
-      "type": "integer"
+    "Color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
     }
   }
 }

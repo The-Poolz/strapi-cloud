@@ -561,6 +561,10 @@ export interface ApiChainSettingChainSetting
       'api::chain-setting.chain-setting'
     > &
       Schema.Attribute.Private;
+    lock_token_whitelist: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::lock-token-whitelist.lock-token-whitelist'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     scannerTxUrl: Schema.Attribute.String;
     Show: Schema.Attribute.Boolean;
@@ -1006,6 +1010,7 @@ export interface ApiLockTokenWhitelistLockTokenWhitelist
   extends Struct.CollectionTypeSchema {
   collectionName: 'lock_token_whitelists';
   info: {
+    description: '';
     displayName: 'Lock Token Whitelist';
     pluralName: 'lock-token-whitelists';
     singularName: 'lock-token-whitelist';
@@ -1016,7 +1021,7 @@ export interface ApiLockTokenWhitelistLockTokenWhitelist
   attributes: {
     Address: Schema.Attribute.String;
     chain_settings: Schema.Attribute.Relation<
-      'manyToMany',
+      'oneToMany',
       'api::chain-setting.chain-setting'
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1252,6 +1257,7 @@ export interface ApiPoolzBoutiquePoolzBoutique
   extends Struct.CollectionTypeSchema {
   collectionName: 'poolz_boutiques';
   info: {
+    description: '';
     displayName: 'PoolzBoutique';
     pluralName: 'poolz-boutiques';
     singularName: 'poolz-boutique';
@@ -1260,13 +1266,13 @@ export interface ApiPoolzBoutiquePoolzBoutique
     draftAndPublish: true;
   };
   attributes: {
-    B: Schema.Attribute.Integer;
     chainID: Schema.Attribute.Integer;
+    Color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Discord: Schema.Attribute.String;
-    G: Schema.Attribute.Integer;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1276,7 +1282,6 @@ export interface ApiPoolzBoutiquePoolzBoutique
     Logo: Schema.Attribute.Media<'images' | 'files'>;
     projectName: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    R: Schema.Attribute.Integer;
     Telegram: Schema.Attribute.String;
     TokenAddress: Schema.Attribute.String;
     Twitter: Schema.Attribute.String;

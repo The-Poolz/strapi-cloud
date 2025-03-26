@@ -4,7 +4,8 @@
   "info": {
     "singularName": "lock-token-whitelist",
     "pluralName": "lock-token-whitelists",
-    "displayName": "Lock Token Whitelist"
+    "displayName": "Lock Token Whitelist",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -27,8 +28,9 @@
     },
     "chain_settings": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::chain-setting.chain-setting"
+      "relation": "oneToMany",
+      "target": "api::chain-setting.chain-setting",
+      "mappedBy": "lock_token_whitelist"
     }
   }
 }
