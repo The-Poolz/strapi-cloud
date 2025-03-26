@@ -673,6 +673,31 @@ export interface ApiContractContract extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCoverCover extends Struct.CollectionTypeSchema {
+  collectionName: 'covers';
+  info: {
+    displayName: 'Cover';
+    pluralName: 'covers';
+    singularName: 'cover';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::cover.cover'> &
+      Schema.Attribute.Private;
+    picture: Schema.Attribute.Media<'images' | 'files'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDefaultWalletDefaultWallet
   extends Struct.CollectionTypeSchema {
   collectionName: 'default_wallets';
@@ -1961,6 +1986,7 @@ declare module '@strapi/strapi' {
       'api::chain.chain': ApiChainChain;
       'api::condition.condition': ApiConditionCondition;
       'api::contract.contract': ApiContractContract;
+      'api::cover.cover': ApiCoverCover;
       'api::default-wallet.default-wallet': ApiDefaultWalletDefaultWallet;
       'api::footer.footer': ApiFooterFooter;
       'api::grow-badge.grow-badge': ApiGrowBadgeGrowBadge;
