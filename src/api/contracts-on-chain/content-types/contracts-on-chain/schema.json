@@ -22,28 +22,6 @@
       "repeatable": true,
       "component": "contract-on-chain.contract-on-chain",
       "required": true
-    },
-    "Explorer": {
-      "type": "string"
-    },
-    "Decimals": {
-      "type": "integer",
-      "default": 18,
-      "required": true
-    },
-    "Faucet": {
-      "type": "string"
-    },
-    "RPC": {
-      "type": "string"
-    },
-    "NativeCurrency": {
-      "type": "string",
-      "required": true
-    },
-    "Symbol": {
-      "type": "string",
-      "required": true
     }
   }
 }

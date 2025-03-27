@@ -579,6 +579,7 @@ export interface ApiChainSettingChainSetting
 export interface ApiChainChain extends Struct.CollectionTypeSchema {
   collectionName: 'chains';
   info: {
+    description: '';
     displayName: 'Chain';
     pluralName: 'chains';
     singularName: 'chain';
@@ -591,16 +592,21 @@ export interface ApiChainChain extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::chain-setting.chain-setting'
     >;
-    chainId: Schema.Attribute.BigInteger;
+    chainId: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Decimals: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<18>;
+    Explorer: Schema.Attribute.String;
+    Faucet: Schema.Attribute.String;
     isTest: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::chain.chain'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    NativeCurrency: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    RPC: Schema.Attribute.String;
     symbol: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -696,21 +702,13 @@ export interface ApiContractsOnChainContractsOnChain
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Decimals: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<18>;
-    Explorer: Schema.Attribute.String;
-    Faucet: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::contracts-on-chain.contracts-on-chain'
     > &
       Schema.Attribute.Private;
-    NativeCurrency: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    RPC: Schema.Attribute.String;
-    Symbol: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
