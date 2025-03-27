@@ -32,6 +32,9 @@
     },
     "Faucet": {
       "type": "string"
+    },
+    "RPC": {
+      "type": "string"
     }
   }
 }
