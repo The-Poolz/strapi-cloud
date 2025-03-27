@@ -673,6 +673,45 @@ export interface ApiContractContract extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContractsOnChainContractsOnChain
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'contracts_on_chains';
+  info: {
+    description: '';
+    displayName: 'Contracts On Chain';
+    pluralName: 'contracts-on-chains';
+    singularName: 'contracts-on-chain';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Chain: Schema.Attribute.Relation<'oneToOne', 'api::chain.chain'> &
+      Schema.Attribute.Required;
+    Contracts: Schema.Attribute.Component<
+      'contract-on-chain.contract-on-chain',
+      true
+    > &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Decimals: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<18>;
+    Explorer: Schema.Attribute.String;
+    Faucet: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contracts-on-chain.contracts-on-chain'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCoverCover extends Struct.CollectionTypeSchema {
   collectionName: 'covers';
   info: {
@@ -1986,6 +2025,7 @@ declare module '@strapi/strapi' {
       'api::chain.chain': ApiChainChain;
       'api::condition.condition': ApiConditionCondition;
       'api::contract.contract': ApiContractContract;
+      'api::contracts-on-chain.contracts-on-chain': ApiContractsOnChainContractsOnChain;
       'api::cover.cover': ApiCoverCover;
       'api::default-wallet.default-wallet': ApiDefaultWalletDefaultWallet;
       'api::footer.footer': ApiFooterFooter;

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contracts_on_chains",
+  "info": {
+    "singularName": "contracts-on-chain",
+    "pluralName": "contracts-on-chains",
+    "displayName": "Contracts On Chain",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Chain": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chain.chain",
+      "required": true
+    },
+    "Contracts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "contract-on-chain.contract-on-chain",
+      "required": true
+    },
+    "Explorer": {
+      "type": "string"
+    },
+    "Decimals": {
+      "type": "integer",
+      "default": 18
+    },
+    "Faucet": {
+      "type": "string"
+    }
+  }
+}
