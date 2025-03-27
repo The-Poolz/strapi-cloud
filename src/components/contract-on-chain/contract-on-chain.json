@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_contract_on_chain_contract_on_chains",
+  "info": {
+    "displayName": "Contract on Chain",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "contract": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contract.contract"
+    },
+    "Address": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

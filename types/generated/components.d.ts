@@ -30,6 +30,21 @@ export interface ColorIconColorIcon extends Struct.ComponentSchema {
   };
 }
 
+export interface ContractOnChainContractOnChain extends Struct.ComponentSchema {
+  collectionName: 'components_contract_on_chain_contract_on_chains';
+  info: {
+    description: '';
+    displayName: 'Contract on Chain';
+    icon: 'alien';
+  };
+  attributes: {
+    Address: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    contract: Schema.Attribute.Relation<'oneToOne', 'api::contract.contract'>;
+  };
+}
+
 export interface DictionaryLinks extends Struct.ComponentSchema {
   collectionName: 'components_dictionary_links';
   info: {
@@ -285,6 +300,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'chain-addresses.chain-addresses': ChainAddressesChainAddresses;
       'color-icon.color-icon': ColorIconColorIcon;
+      'contract-on-chain.contract-on-chain': ContractOnChainContractOnChain;
       'dictionary.links': DictionaryLinks;
       'full-token-distribution.full-token-distribution': FullTokenDistributionFullTokenDistribution;
       'header-simple-url.header-simple-url': HeaderSimpleUrlHeaderSimpleUrl;
