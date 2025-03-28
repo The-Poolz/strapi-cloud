@@ -579,6 +579,7 @@ export interface ApiChainSettingChainSetting
 export interface ApiChainChain extends Struct.CollectionTypeSchema {
   collectionName: 'chains';
   info: {
+    description: '';
     displayName: 'Chain';
     pluralName: 'chains';
     singularName: 'chain';
@@ -592,6 +593,10 @@ export interface ApiChainChain extends Struct.CollectionTypeSchema {
       'api::chain-setting.chain-setting'
     >;
     chainId: Schema.Attribute.BigInteger;
+    contracts_on_chain: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::contracts-on-chain.contracts-on-chain'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -637,6 +642,35 @@ export interface ApiConditionCondition extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiContractTypeContractType
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'contract_types';
+  info: {
+    displayName: 'Contract Type';
+    pluralName: 'contract-types';
+    singularName: 'contract-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ContractType: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contract-type.contract-type'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContractContract extends Struct.CollectionTypeSchema {
   collectionName: 'contracts';
   info: {
@@ -670,6 +704,48 @@ export interface ApiContractContract extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiContractsOnChainContractsOnChain
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'contracts_on_chains';
+  info: {
+    description: '';
+    displayName: 'Contracts On Chain';
+    pluralName: 'contracts-on-chains';
+    singularName: 'contracts-on-chain';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Chain: Schema.Attribute.Relation<'oneToOne', 'api::chain.chain'> &
+      Schema.Attribute.Required;
+    Contracts: Schema.Attribute.Component<
+      'contract-on-chain.contract-on-chain',
+      true
+    > &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Decimals: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<18>;
+    Explorer: Schema.Attribute.String;
+    Faucet: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contracts-on-chain.contracts-on-chain'
+    > &
+      Schema.Attribute.Private;
+    NativeCurrency: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    RPC: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    WebSocket: Schema.Attribute.String;
   };
 }
 
@@ -967,6 +1043,35 @@ export interface ApiInvestorInvestor extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLatestTypeLatestType extends Struct.SingleTypeSchema {
+  collectionName: 'latest_types';
+  info: {
+    displayName: 'Latest Type';
+    pluralName: 'latest-types';
+    singularName: 'latest-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::latest-type.latest-type'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Version: Schema.Attribute.Component<'version.version', true> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -1985,7 +2090,9 @@ declare module '@strapi/strapi' {
       'api::chain-setting.chain-setting': ApiChainSettingChainSetting;
       'api::chain.chain': ApiChainChain;
       'api::condition.condition': ApiConditionCondition;
+      'api::contract-type.contract-type': ApiContractTypeContractType;
       'api::contract.contract': ApiContractContract;
+      'api::contracts-on-chain.contracts-on-chain': ApiContractsOnChainContractsOnChain;
       'api::cover.cover': ApiCoverCover;
       'api::default-wallet.default-wallet': ApiDefaultWalletDefaultWallet;
       'api::footer.footer': ApiFooterFooter;
@@ -1995,6 +2102,7 @@ declare module '@strapi/strapi' {
       'api::ido-badge.ido-badge': ApiIdoBadgeIdoBadge;
       'api::invest-term.invest-term': ApiInvestTermInvestTerm;
       'api::investor.investor': ApiInvestorInvestor;
+      'api::latest-type.latest-type': ApiLatestTypeLatestType;
       'api::link-type.link-type': ApiLinkTypeLinkType;
       'api::lock-poolz-term.lock-poolz-term': ApiLockPoolzTermLockPoolzTerm;
       'api::lock-token-whitelist.lock-token-whitelist': ApiLockTokenWhitelistLockTokenWhitelist;

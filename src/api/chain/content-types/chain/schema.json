@@ -30,6 +30,12 @@
       "relation": "oneToOne",
       "target": "api::chain-setting.chain-setting",
       "mappedBy": "chain"
+    },
+    "contracts_on_chain": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contracts-on-chain.contracts-on-chain",
+      "mappedBy": "Chain"
     }
   }
 }

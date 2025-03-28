@@ -30,6 +30,30 @@ export interface ColorIconColorIcon extends Struct.ComponentSchema {
   };
 }
 
+export interface ContractOnChainContractOnChain extends Struct.ComponentSchema {
+  collectionName: 'components_contract_on_chain_contract_on_chains';
+  info: {
+    description: '';
+    displayName: 'Contract on Chain';
+    icon: 'alien';
+  };
+  attributes: {
+    Address: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    ContractType: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::contract-type.contract-type'
+    > &
+      Schema.Attribute.Required;
+    ContractVersion: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::contract.contract'
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface DictionaryLinks extends Struct.ComponentSchema {
   collectionName: 'components_dictionary_links';
   info: {
@@ -267,6 +291,26 @@ export interface UploadPoolUploadPool extends Struct.ComponentSchema {
   };
 }
 
+export interface VersionVersion extends Struct.ComponentSchema {
+  collectionName: 'components_version_versions';
+  info: {
+    displayName: 'Version';
+    icon: 'alien';
+  };
+  attributes: {
+    ContractType: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::contract-type.contract-type'
+    > &
+      Schema.Attribute.Required;
+    ContractVersion: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::contract.contract'
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface VisualTextVisualText extends Struct.ComponentSchema {
   collectionName: 'components_visual_text_visual_texts';
   info: {
@@ -285,6 +329,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'chain-addresses.chain-addresses': ChainAddressesChainAddresses;
       'color-icon.color-icon': ColorIconColorIcon;
+      'contract-on-chain.contract-on-chain': ContractOnChainContractOnChain;
       'dictionary.links': DictionaryLinks;
       'full-token-distribution.full-token-distribution': FullTokenDistributionFullTokenDistribution;
       'header-simple-url.header-simple-url': HeaderSimpleUrlHeaderSimpleUrl;
@@ -301,6 +346,7 @@ declare module '@strapi/strapi' {
       'token-distribution.token-distribution': TokenDistributionTokenDistribution;
       'tokenomics.tokenomics': TokenomicsTokenomics;
       'upload-pool.upload-pool': UploadPoolUploadPool;
+      'version.version': VersionVersion;
       'visual-text.visual-text': VisualTextVisualText;
     }
   }

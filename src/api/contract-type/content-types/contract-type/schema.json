@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contract_types",
+  "info": {
+    "singularName": "contract-type",
+    "pluralName": "contract-types",
+    "displayName": "Contract Type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "ContractType": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
