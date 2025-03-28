@@ -593,6 +593,10 @@ export interface ApiChainChain extends Struct.CollectionTypeSchema {
       'api::chain-setting.chain-setting'
     >;
     chainId: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+    contracts_on_chain: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::contracts-on-chain.contracts-on-chain'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -611,6 +615,7 @@ export interface ApiChainChain extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    WebSocket: Schema.Attribute.String;
   };
 }
 

@@ -10,7 +10,8 @@
     "contract": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::contract.contract"
+      "target": "api::contract.contract",
+      "required": true
     },
     "Address": {
       "type": "string",

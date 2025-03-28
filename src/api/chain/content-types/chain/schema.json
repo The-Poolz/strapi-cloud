@@ -49,6 +49,15 @@
     "NativeCurrency": {
       "type": "string",
       "required": true
+    },
+    "WebSocket": {
+      "type": "string"
+    },
+    "contracts_on_chain": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contracts-on-chain.contracts-on-chain",
+      "mappedBy": "Chain"
     }
   }
 }

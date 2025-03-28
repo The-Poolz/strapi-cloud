@@ -15,6 +15,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::chain.chain",
+      "inversedBy": "contracts_on_chain",
       "required": true
     },
     "Contracts": {
