@@ -660,7 +660,7 @@ export interface ApiContractTypeContractType
     draftAndPublish: true;
   };
   attributes: {
-    ContractType: Schema.Attribute.String;
+    ContractType: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

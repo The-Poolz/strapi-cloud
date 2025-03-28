@@ -11,7 +11,8 @@
   },
   "attributes": {
     "ContractType": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }
