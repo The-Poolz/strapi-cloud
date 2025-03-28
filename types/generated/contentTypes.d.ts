@@ -648,6 +648,35 @@ export interface ApiConditionCondition extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiContractTypeContractType
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'contract_types';
+  info: {
+    displayName: 'Contract Type';
+    pluralName: 'contract-types';
+    singularName: 'contract-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ContractType: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contract-type.contract-type'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContractContract extends Struct.CollectionTypeSchema {
   collectionName: 'contracts';
   info: {
@@ -2032,6 +2061,7 @@ declare module '@strapi/strapi' {
       'api::chain-setting.chain-setting': ApiChainSettingChainSetting;
       'api::chain.chain': ApiChainChain;
       'api::condition.condition': ApiConditionCondition;
+      'api::contract-type.contract-type': ApiContractTypeContractType;
       'api::contract.contract': ApiContractContract;
       'api::contracts-on-chain.contracts-on-chain': ApiContractsOnChainContractsOnChain;
       'api::cover.cover': ApiCoverCover;

@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "contract": {
+    "ContractVersion": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::contract.contract",
@@ -17,6 +17,12 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "ContractType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contract-type.contract-type",
+      "required": true
     }
   }
 }
