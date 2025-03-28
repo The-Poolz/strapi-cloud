@@ -23,6 +23,25 @@
       "repeatable": true,
       "component": "contract-on-chain.contract-on-chain",
       "required": true
+    },
+    "Decimals": {
+      "type": "integer",
+      "default": 18
+    },
+    "Explorer": {
+      "type": "string"
+    },
+    "Faucet": {
+      "type": "string"
+    },
+    "RPC": {
+      "type": "string"
+    },
+    "NativeCurrency": {
+      "type": "string"
+    },
+    "WebSocket": {
+      "type": "string"
     }
   }
 }

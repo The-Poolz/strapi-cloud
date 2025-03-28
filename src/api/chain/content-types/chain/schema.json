@@ -4,8 +4,7 @@
   "info": {
     "singularName": "chain",
     "pluralName": "chains",
-    "displayName": "Chain",
-    "description": ""
+    "displayName": "Chain"
   },
   "options": {
     "draftAndPublish": true
@@ -24,34 +23,13 @@
       "default": false
     },
     "chainId": {
-      "type": "biginteger",
-      "required": true
+      "type": "biginteger"
     },
     "chain_setting": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::chain-setting.chain-setting",
       "mappedBy": "chain"
-    },
-    "Decimals": {
-      "type": "integer",
-      "default": 18
-    },
-    "Explorer": {
-      "type": "string"
-    },
-    "Faucet": {
-      "type": "string"
-    },
-    "RPC": {
-      "type": "string"
-    },
-    "NativeCurrency": {
-      "type": "string",
-      "required": true
-    },
-    "WebSocket": {
-      "type": "string"
     },
     "contracts_on_chain": {
       "type": "relation",
