@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_version_versions",
+  "info": {
+    "displayName": "Version",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "ContractVersion": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contract.contract",
+      "required": true
+    },
+    "ContractType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contract-type.contract-type",
+      "required": true
+    }
+  }
+}

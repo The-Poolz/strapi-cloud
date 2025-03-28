@@ -44,11 +44,13 @@ export interface ContractOnChainContractOnChain extends Struct.ComponentSchema {
     ContractType: Schema.Attribute.Relation<
       'oneToOne',
       'api::contract-type.contract-type'
-    >;
+    > &
+      Schema.Attribute.Required;
     ContractVersion: Schema.Attribute.Relation<
       'oneToOne',
       'api::contract.contract'
-    >;
+    > &
+      Schema.Attribute.Required;
   };
 }
 
@@ -289,6 +291,26 @@ export interface UploadPoolUploadPool extends Struct.ComponentSchema {
   };
 }
 
+export interface VersionVersion extends Struct.ComponentSchema {
+  collectionName: 'components_version_versions';
+  info: {
+    displayName: 'Version';
+    icon: 'alien';
+  };
+  attributes: {
+    ContractType: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::contract-type.contract-type'
+    > &
+      Schema.Attribute.Required;
+    ContractVersion: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::contract.contract'
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface VisualTextVisualText extends Struct.ComponentSchema {
   collectionName: 'components_visual_text_visual_texts';
   info: {
@@ -324,6 +346,7 @@ declare module '@strapi/strapi' {
       'token-distribution.token-distribution': TokenDistributionTokenDistribution;
       'tokenomics.tokenomics': TokenomicsTokenomics;
       'upload-pool.upload-pool': UploadPoolUploadPool;
+      'version.version': VersionVersion;
       'visual-text.visual-text': VisualTextVisualText;
     }
   }

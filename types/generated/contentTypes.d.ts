@@ -1046,6 +1046,35 @@ export interface ApiInvestorInvestor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLatestTypeLatestType extends Struct.SingleTypeSchema {
+  collectionName: 'latest_types';
+  info: {
+    displayName: 'Latest Type';
+    pluralName: 'latest-types';
+    singularName: 'latest-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::latest-type.latest-type'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Version: Schema.Attribute.Component<'version.version', true> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface ApiLinkTypeLinkType extends Struct.CollectionTypeSchema {
   collectionName: 'link_types';
   info: {
@@ -2073,6 +2102,7 @@ declare module '@strapi/strapi' {
       'api::ido-badge.ido-badge': ApiIdoBadgeIdoBadge;
       'api::invest-term.invest-term': ApiInvestTermInvestTerm;
       'api::investor.investor': ApiInvestorInvestor;
+      'api::latest-type.latest-type': ApiLatestTypeLatestType;
       'api::link-type.link-type': ApiLinkTypeLinkType;
       'api::lock-poolz-term.lock-poolz-term': ApiLockPoolzTermLockPoolzTerm;
       'api::lock-token-whitelist.lock-token-whitelist': ApiLockTokenWhitelistLockTokenWhitelist;

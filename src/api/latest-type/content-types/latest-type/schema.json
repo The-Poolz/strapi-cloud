@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "latest_types",
+  "info": {
+    "singularName": "latest-type",
+    "pluralName": "latest-types",
+    "displayName": "Latest Type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Version": {
+      "displayName": "Version",
+      "type": "component",
+      "repeatable": true,
+      "component": "version.version",
+      "required": true
+    }
+  }
+}
