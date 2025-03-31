@@ -579,7 +579,6 @@ export interface ApiChainSettingChainSetting
 export interface ApiChainChain extends Struct.CollectionTypeSchema {
   collectionName: 'chains';
   info: {
-    description: '';
     displayName: 'Chain';
     pluralName: 'chains';
     singularName: 'chain';
@@ -819,13 +818,17 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Boost_Social: Schema.Attribute.Component<'simple-url.simple-url', true>;
-    Company: Schema.Attribute.Component<'simple-url.simple-url', true>;
+    Boost_Social: Schema.Attribute.Component<'simple-url.simple-url', true> &
+      Schema.Attribute.Required;
+    Company: Schema.Attribute.Component<'simple-url.simple-url', true> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Help: Schema.Attribute.Component<'simple-url.simple-url', true>;
-    Information: Schema.Attribute.Component<'simple-url.simple-url', true>;
+    Help: Schema.Attribute.Component<'simple-url.simple-url', true> &
+      Schema.Attribute.Required;
+    Information: Schema.Attribute.Component<'simple-url.simple-url', true> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -833,7 +836,8 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Social: Schema.Attribute.Component<'simple-url.simple-url', true>;
+    Social: Schema.Attribute.Component<'simple-url.simple-url', true> &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

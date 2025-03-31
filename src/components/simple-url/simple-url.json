@@ -2,18 +2,23 @@
   "collectionName": "components_simple_url_simple_urls",
   "info": {
     "displayName": "simpleUrl",
-    "icon": "cursor"
+    "icon": "cursor",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "newWindow": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true,
+      "default": true
     }
   }
 }

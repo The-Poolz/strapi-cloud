@@ -15,27 +15,32 @@
       "displayName": "simpleUrl",
       "type": "component",
       "repeatable": true,
-      "component": "simple-url.simple-url"
+      "component": "simple-url.simple-url",
+      "required": true
     },
     "Help": {
       "type": "component",
       "repeatable": true,
-      "component": "simple-url.simple-url"
+      "component": "simple-url.simple-url",
+      "required": true
     },
     "Information": {
       "type": "component",
       "repeatable": true,
-      "component": "simple-url.simple-url"
+      "component": "simple-url.simple-url",
+      "required": true
     },
     "Social": {
       "type": "component",
       "repeatable": true,
-      "component": "simple-url.simple-url"
+      "component": "simple-url.simple-url",
+      "required": true
     },
     "Boost_Social": {
       "type": "component",
       "repeatable": true,
-      "component": "simple-url.simple-url"
+      "component": "simple-url.simple-url",
+      "required": true
     }
   }
 }

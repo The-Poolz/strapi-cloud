@@ -208,13 +208,16 @@ export interface SectionSection extends Struct.ComponentSchema {
 export interface SimpleUrlSimpleUrl extends Struct.ComponentSchema {
   collectionName: 'components_simple_url_simple_urls';
   info: {
+    description: '';
     displayName: 'simpleUrl';
     icon: 'cursor';
   };
   attributes: {
-    name: Schema.Attribute.String;
-    newWindow: Schema.Attribute.Boolean;
-    url: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    newWindow: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
