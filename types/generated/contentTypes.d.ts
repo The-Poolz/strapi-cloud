@@ -945,7 +945,8 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     HeaderList: Schema.Attribute.Component<
       'header-simple-url.header-simple-url',
       true
-    >;
+    > &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1197,7 +1198,8 @@ export interface ApiMainMain extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::main.main'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    sections: Schema.Attribute.Component<'section.section', false>;
+    sections: Schema.Attribute.Component<'section.section', false> &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

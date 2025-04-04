@@ -14,7 +14,8 @@
     "HeaderList": {
       "type": "component",
       "repeatable": true,
-      "component": "header-simple-url.header-simple-url"
+      "component": "header-simple-url.header-simple-url",
+      "required": true
     }
   }
 }
