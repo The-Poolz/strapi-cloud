@@ -22,7 +22,7 @@
     },
     "backColor": {
       "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|TRANSPARENT)$",
+      "regex": "^(#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})|TRANSPARENT)$",
       "customField": "plugin::color-picker.color"
     },
     "TextColor": {
