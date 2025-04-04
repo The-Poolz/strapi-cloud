@@ -20,9 +20,6 @@
     "addText": {
       "type": "string"
     },
-    "flag": {
-      "type": "string"
-    },
     "backColor": {
       "type": "customField",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
@@ -37,6 +34,10 @@
       "type": "customField",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
       "customField": "plugin::color-picker.color"
+    },
+    "flag": {
+      "type": "boolean",
+      "required": true
     }
   }
 }

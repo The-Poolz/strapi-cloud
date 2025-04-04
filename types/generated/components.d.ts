@@ -161,7 +161,7 @@ export interface MainCtaMainCta extends Struct.ComponentSchema {
     backColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     ctaText: Schema.Attribute.String;
-    flag: Schema.Attribute.String;
+    flag: Schema.Attribute.Boolean & Schema.Attribute.Required;
     hoverBackColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     text: Schema.Attribute.String & Schema.Attribute.Required;
