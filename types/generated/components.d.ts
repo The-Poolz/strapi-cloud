@@ -111,7 +111,7 @@ export interface HighlightsHighlights extends Struct.ComponentSchema {
     displayName: 'Highlights';
   };
   attributes: {
-    Value: Schema.Attribute.String;
+    Value: Schema.Attribute.Text;
   };
 }
 
@@ -177,7 +177,7 @@ export interface OverviewOverview extends Struct.ComponentSchema {
     displayName: 'Overview';
   };
   attributes: {
-    BoldText: Schema.Attribute.String;
+    BoldText: Schema.Attribute.Text;
     Name: Schema.Attribute.String;
     Text: Schema.Attribute.Text;
   };

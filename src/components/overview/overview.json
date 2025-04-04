@@ -9,7 +9,7 @@
       "type": "string"
     },
     "BoldText": {
-      "type": "string"
+      "type": "text"
     },
     "Text": {
       "type": "text"
