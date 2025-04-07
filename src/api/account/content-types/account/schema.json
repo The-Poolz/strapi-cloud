@@ -4,17 +4,20 @@
   "info": {
     "singularName": "account",
     "pluralName": "accounts",
-    "displayName": "Account"
+    "displayName": "Account",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "smallText": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

@@ -410,6 +410,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
 export interface ApiAccountAccount extends Struct.SingleTypeSchema {
   collectionName: 'accounts';
   info: {
+    description: '';
     displayName: 'Account';
     pluralName: 'accounts';
     singularName: 'account';
@@ -428,8 +429,8 @@ export interface ApiAccountAccount extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    smallText: Schema.Attribute.Text;
-    Title: Schema.Attribute.String;
+    smallText: Schema.Attribute.Text & Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
