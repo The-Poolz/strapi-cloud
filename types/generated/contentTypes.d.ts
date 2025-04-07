@@ -1271,6 +1271,7 @@ export interface ApiMediaKitMediaKit extends Struct.CollectionTypeSchema {
 export interface ApiNonEvmChainNonEvmChain extends Struct.CollectionTypeSchema {
   collectionName: 'non_evm_chains';
   info: {
+    description: '';
     displayName: 'Non Evm Chain';
     pluralName: 'non-evm-chains';
     singularName: 'non-evm-chain';
@@ -1282,8 +1283,9 @@ export interface ApiNonEvmChainNonEvmChain extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    DisplayText: Schema.Attribute.String;
-    Icon: Schema.Attribute.Media<'images' | 'files'>;
+    DisplayText: Schema.Attribute.String & Schema.Attribute.Required;
+    Icon: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1291,7 +1293,7 @@ export interface ApiNonEvmChainNonEvmChain extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Regex: Schema.Attribute.String;
+    Regex: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
