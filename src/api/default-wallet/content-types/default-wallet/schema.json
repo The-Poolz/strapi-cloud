@@ -12,18 +12,21 @@
   },
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Link": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "order": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "Icon": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
