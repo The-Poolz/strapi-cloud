@@ -1364,6 +1364,7 @@ export interface ApiOurPartnerOurPartner extends Struct.CollectionTypeSchema {
 export interface ApiPageInfoPageInfo extends Struct.CollectionTypeSchema {
   collectionName: 'page_infos';
   info: {
+    description: '';
     displayName: 'PageInfo';
     pluralName: 'page-infos';
     singularName: 'page-info';
@@ -1386,7 +1387,7 @@ export interface ApiPageInfoPageInfo extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
