@@ -4,17 +4,20 @@
   "info": {
     "singularName": "vault-faq",
     "pluralName": "vault-faqs",
-    "displayName": "VaultFAQ"
+    "displayName": "VaultFAQ",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "ShortText": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "LongText": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

@@ -1557,6 +1557,7 @@ export interface ApiStakingCoolDownStakingCoolDown
 export interface ApiVaultFaqVaultFaq extends Struct.CollectionTypeSchema {
   collectionName: 'vault_faqs';
   info: {
+    description: '';
     displayName: 'VaultFAQ';
     pluralName: 'vault-faqs';
     singularName: 'vault-faq';
@@ -1574,9 +1575,9 @@ export interface ApiVaultFaqVaultFaq extends Struct.CollectionTypeSchema {
       'api::vault-faq.vault-faq'
     > &
       Schema.Attribute.Private;
-    LongText: Schema.Attribute.Text;
+    LongText: Schema.Attribute.Text & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    ShortText: Schema.Attribute.String;
+    ShortText: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

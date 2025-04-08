@@ -38,9 +38,7 @@ export interface ContractOnChainContractOnChain extends Struct.ComponentSchema {
     icon: 'alien';
   };
   attributes: {
-    Address: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+    Address: Schema.Attribute.String & Schema.Attribute.Required;
     ContractType: Schema.Attribute.Relation<
       'oneToOne',
       'api::contract-type.contract-type'
