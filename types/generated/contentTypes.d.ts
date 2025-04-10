@@ -978,18 +978,19 @@ export interface ApiIdoBadgeIdoBadge extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Color: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ExplainText: Schema.Attribute.Text;
+    ExplainText: Schema.Attribute.Text & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::ido-badge.ido-badge'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
