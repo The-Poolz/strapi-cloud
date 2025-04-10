@@ -1,12 +1,14 @@
 {
   "collectionName": "components_smart_links_smart_links",
   "info": {
-    "displayName": "SmartLinks"
+    "displayName": "SmartLinks",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "URL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "link_type": {
       "type": "relation",

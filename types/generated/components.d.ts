@@ -222,6 +222,7 @@ export interface SimpleUrlSimpleUrl extends Struct.ComponentSchema {
 export interface SmartLinksSmartLinks extends Struct.ComponentSchema {
   collectionName: 'components_smart_links_smart_links';
   info: {
+    description: '';
     displayName: 'SmartLinks';
   };
   attributes: {
@@ -229,7 +230,7 @@ export interface SmartLinksSmartLinks extends Struct.ComponentSchema {
       'oneToOne',
       'api::link-type.link-type'
     >;
-    URL: Schema.Attribute.String;
+    URL: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

@@ -1102,7 +1102,9 @@ export interface ApiLinkTypeLinkType extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     DarkIcon: Schema.Attribute.Media<'images' | 'files'>;
-    IsOnTop: Schema.Attribute.Boolean;
+    IsOnTop: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     LightIcon: Schema.Attribute.Media<'images' | 'files'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1110,7 +1112,7 @@ export interface ApiLinkTypeLinkType extends Struct.CollectionTypeSchema {
       'api::link-type.link-type'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
