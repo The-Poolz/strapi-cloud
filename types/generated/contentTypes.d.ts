@@ -977,7 +977,7 @@ export interface ApiIdoBadgeIdoBadge extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Color: Schema.Attribute.String &
+    ColorCode: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Schema.Attribute.DateTime;
