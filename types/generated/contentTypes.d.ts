@@ -752,6 +752,7 @@ export interface ApiContractsOnChainContractsOnChain
 export interface ApiCoverCover extends Struct.CollectionTypeSchema {
   collectionName: 'covers';
   info: {
+    description: '';
     displayName: 'Cover';
     pluralName: 'covers';
     singularName: 'cover';
@@ -766,7 +767,8 @@ export interface ApiCoverCover extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::cover.cover'> &
       Schema.Attribute.Private;
-    picture: Schema.Attribute.Media<'images' | 'files'>;
+    picture: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

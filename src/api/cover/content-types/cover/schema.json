@@ -4,7 +4,8 @@
   "info": {
     "singularName": "cover",
     "pluralName": "covers",
-    "displayName": "Cover"
+    "displayName": "Cover",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,7 +14,7 @@
     "picture": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
