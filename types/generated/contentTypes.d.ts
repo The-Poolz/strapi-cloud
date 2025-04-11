@@ -1472,6 +1472,7 @@ export interface ApiProjectsInformationProjectsInformation
   extends Struct.CollectionTypeSchema {
   collectionName: 'projects_informations';
   info: {
+    description: '';
     displayName: 'ProjectsInformation';
     pluralName: 'projects-informations';
     singularName: 'projects-information';
@@ -1515,7 +1516,9 @@ export interface ApiProjectsInformationProjectsInformation
     MainListShow: Schema.Attribute.Boolean;
     Name: Schema.Attribute.String & Schema.Attribute.Required;
     Original: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
-    PoolzBackId: Schema.Attribute.BigInteger;
+    PoolzBackId: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
     StartTime: Schema.Attribute.DateTime;
     Syntetic: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
@@ -1525,7 +1528,9 @@ export interface ApiProjectsInformationProjectsInformation
     UploadPool: Schema.Attribute.Component<'upload-pool.upload-pool', false>;
     VisualText: Schema.Attribute.Component<'visual-text.visual-text', false>;
     Warning_Text: Schema.Attribute.Text;
-    WhitelistId: Schema.Attribute.BigInteger;
+    WhitelistId: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
   };
 }
 

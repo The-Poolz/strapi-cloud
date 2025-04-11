@@ -4,19 +4,25 @@
   "info": {
     "singularName": "projects-information",
     "pluralName": "projects-informations",
-    "displayName": "ProjectsInformation"
+    "displayName": "ProjectsInformation",
+    "description": ""
   },
   "options": {
+    "draftAndPublish": false
   },
   "attributes": {
     "CryptorankKey": {
       "type": "string"
     },
     "PoolzBackId": {
-      "type": "biginteger"
+      "type": "integer",
+      "required": true,
+      "default": 0
     },
     "WhitelistId": {
-      "type": "biginteger"
+      "type": "integer",
+      "required": true,
+      "default": 0
     },
     "Name": {
       "type": "string",
