@@ -1,12 +1,14 @@
 {
   "collectionName": "components_overview_overviews",
   "info": {
-    "displayName": "Overview"
+    "displayName": "Overview",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "BoldText": {
       "type": "text"

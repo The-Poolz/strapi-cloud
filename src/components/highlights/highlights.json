@@ -1,12 +1,14 @@
 {
   "collectionName": "components_highlights_highlights",
   "info": {
-    "displayName": "Highlights"
+    "displayName": "Highlights",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Value": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

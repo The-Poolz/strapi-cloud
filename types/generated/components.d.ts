@@ -106,10 +106,11 @@ export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
 export interface HighlightsHighlights extends Struct.ComponentSchema {
   collectionName: 'components_highlights_highlights';
   info: {
+    description: '';
     displayName: 'Highlights';
   };
   attributes: {
-    Value: Schema.Attribute.Text;
+    Value: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -172,11 +173,12 @@ export interface MainCtaMainCta extends Struct.ComponentSchema {
 export interface OverviewOverview extends Struct.ComponentSchema {
   collectionName: 'components_overview_overviews';
   info: {
+    description: '';
     displayName: 'Overview';
   };
   attributes: {
     BoldText: Schema.Attribute.Text;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     Text: Schema.Attribute.Text;
   };
 }
