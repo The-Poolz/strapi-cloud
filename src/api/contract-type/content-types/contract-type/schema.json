@@ -4,7 +4,8 @@
   "info": {
     "singularName": "contract-type",
     "pluralName": "contract-types",
-    "displayName": "Contract Type"
+    "displayName": "Contract Type",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,13 @@
     "ContractType": {
       "type": "string",
       "required": true
+    },
+    "order": {
+      "unique": true,
+      "type": "integer"
+    },
+    "isUpgradable": {
+      "type": "boolean"
     }
   }
 }

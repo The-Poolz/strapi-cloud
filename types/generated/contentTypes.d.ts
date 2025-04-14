@@ -646,6 +646,7 @@ export interface ApiContractTypeContractType
   extends Struct.CollectionTypeSchema {
   collectionName: 'contract_types';
   info: {
+    description: '';
     displayName: 'Contract Type';
     pluralName: 'contract-types';
     singularName: 'contract-type';
@@ -658,12 +659,14 @@ export interface ApiContractTypeContractType
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    isUpgradable: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::contract-type.contract-type'
     > &
       Schema.Attribute.Private;
+    order: Schema.Attribute.Integer & Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
