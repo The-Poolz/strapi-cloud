@@ -1,13 +1,14 @@
 {
   "collectionName": "components_investors_investors",
   "info": {
-    "displayName": "Investors"
+    "displayName": "Investors",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "investor": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToOne",
       "target": "api::investor.investor"
     },
     "Category": {

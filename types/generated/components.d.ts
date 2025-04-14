@@ -141,11 +141,12 @@ export interface IconTextIconText extends Struct.ComponentSchema {
 export interface InvestorsInvestors extends Struct.ComponentSchema {
   collectionName: 'components_investors_investors';
   info: {
+    description: '';
     displayName: 'Investors';
   };
   attributes: {
     Category: Schema.Attribute.String;
-    investor: Schema.Attribute.Relation<'manyToMany', 'api::investor.investor'>;
+    investor: Schema.Attribute.Relation<'oneToOne', 'api::investor.investor'>;
   };
 }
 
