@@ -1165,7 +1165,9 @@ export interface ApiLockTokenWhitelistLockTokenWhitelist
     draftAndPublish: true;
   };
   attributes: {
-    Address: Schema.Attribute.String & Schema.Attribute.Required;
+    Address: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     chain_settings: Schema.Attribute.Relation<
       'manyToMany',
       'api::chain-setting.chain-setting'
