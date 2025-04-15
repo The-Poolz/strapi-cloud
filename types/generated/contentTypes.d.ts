@@ -1165,7 +1165,7 @@ export interface ApiLockTokenWhitelistLockTokenWhitelist
     draftAndPublish: true;
   };
   attributes: {
-    Address: Schema.Attribute.String;
+    Address: Schema.Attribute.String & Schema.Attribute.Required;
     chain_settings: Schema.Attribute.Relation<
       'manyToMany',
       'api::chain-setting.chain-setting'
@@ -1179,11 +1179,12 @@ export interface ApiLockTokenWhitelistLockTokenWhitelist
       'api::lock-token-whitelist.lock-token-whitelist'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     Type: Schema.Attribute.Enumeration<
       ['OriginalToken', 'Envelope', 'Synthetic', 'LockDealNFT']
-    >;
+    > &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
