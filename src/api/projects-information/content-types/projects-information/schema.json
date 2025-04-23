@@ -104,8 +104,9 @@
     },
     "chain_setting": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::chain-setting.chain-setting"
+      "relation": "manyToOne",
+      "target": "api::chain-setting.chain-setting",
+      "inversedBy": "projects_informations"
     },
     "ido_badge": {
       "type": "relation",
