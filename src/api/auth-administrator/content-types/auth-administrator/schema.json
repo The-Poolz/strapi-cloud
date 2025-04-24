@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auth_administrators",
+  "info": {
+    "singularName": "auth-administrator",
+    "pluralName": "auth-administrators",
+    "displayName": "Auth Administrators"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Wallet": {
+      "type": "string",
+      "regex": "^(0x)?[0-9a-fA-F]{40}$",
+      "unique": true,
+      "required": true,
+      "maxLength": 42,
+      "minLength": 42
+    },
+    "Note": {
+      "type": "string",
+      "maxLength": 256,
+      "required": true
+    }
+  }
+}

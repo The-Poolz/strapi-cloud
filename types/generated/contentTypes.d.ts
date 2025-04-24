@@ -437,6 +437,46 @@ export interface ApiAccountAccount extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAuthAdministratorAuthAdministrator
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'auth_administrators';
+  info: {
+    displayName: 'Auth Administrators';
+    pluralName: 'auth-administrators';
+    singularName: 'auth-administrator';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-administrator.auth-administrator'
+    > &
+      Schema.Attribute.Private;
+    Note: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Wallet: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 42;
+        minLength: 42;
+      }>;
+  };
+}
+
 export interface ApiAuthResourceAuthResource
   extends Struct.CollectionTypeSchema {
   collectionName: 'auth_resources';
@@ -2228,6 +2268,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::account.account': ApiAccountAccount;
+      'api::auth-administrator.auth-administrator': ApiAuthAdministratorAuthAdministrator;
       'api::auth-resource.auth-resource': ApiAuthResourceAuthResource;
       'api::auth-role.auth-role': ApiAuthRoleAuthRole;
       'api::auth-user.auth-user': ApiAuthUserAuthUser;
