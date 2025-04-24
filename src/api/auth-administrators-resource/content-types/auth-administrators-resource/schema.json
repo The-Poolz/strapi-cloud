@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "auth_administrators_resources",
+  "info": {
+    "singularName": "auth-administrators-resource",
+    "pluralName": "auth-administrators-resources",
+    "displayName": "Auth Administrators Resources"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "OnlyAdminResources": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::auth-resource.auth-resource"
+    }
+  }
+}

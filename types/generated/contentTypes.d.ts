@@ -463,10 +463,6 @@ export interface ApiAuthAdministratorAuthAdministrator
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    OnlyAdminResources: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::auth-resource.auth-resource'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -478,6 +474,38 @@ export interface ApiAuthAdministratorAuthAdministrator
         maxLength: 42;
         minLength: 42;
       }>;
+  };
+}
+
+export interface ApiAuthAdministratorsResourceAuthAdministratorsResource
+  extends Struct.SingleTypeSchema {
+  collectionName: 'auth_administrators_resources';
+  info: {
+    displayName: 'Auth Administrators Resources';
+    pluralName: 'auth-administrators-resources';
+    singularName: 'auth-administrators-resource';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-administrators-resource.auth-administrators-resource'
+    > &
+      Schema.Attribute.Private;
+    OnlyAdminResources: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-resource.auth-resource'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2273,6 +2301,7 @@ declare module '@strapi/strapi' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::account.account': ApiAccountAccount;
       'api::auth-administrator.auth-administrator': ApiAuthAdministratorAuthAdministrator;
+      'api::auth-administrators-resource.auth-administrators-resource': ApiAuthAdministratorsResourceAuthAdministratorsResource;
       'api::auth-resource.auth-resource': ApiAuthResourceAuthResource;
       'api::auth-role.auth-role': ApiAuthRoleAuthRole;
       'api::auth-user.auth-user': ApiAuthUserAuthUser;
