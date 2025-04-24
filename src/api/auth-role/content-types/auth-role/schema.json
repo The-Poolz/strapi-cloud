@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auth_roles",
+  "info": {
+    "singularName": "auth-role",
+    "pluralName": "auth-roles",
+    "displayName": "Auth Roles",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 256
+    }
+  }
+}

@@ -437,6 +437,117 @@ export interface ApiAccountAccount extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAuthResourceAuthResource
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'auth_resources';
+  info: {
+    description: '';
+    displayName: 'Auth Resources';
+    pluralName: 'auth-resources';
+    singularName: 'auth-resource';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-resource.auth-resource'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    RoleIDs: Schema.Attribute.Relation<'oneToMany', 'api::auth-role.auth-role'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAuthRoleAuthRole extends Struct.CollectionTypeSchema {
+  collectionName: 'auth_roles';
+  info: {
+    description: '';
+    displayName: 'Auth Roles';
+    pluralName: 'auth-roles';
+    singularName: 'auth-role';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-role.auth-role'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAuthUserAuthUser extends Struct.CollectionTypeSchema {
+  collectionName: 'auth_users';
+  info: {
+    description: '';
+    displayName: 'Auth Users';
+    pluralName: 'auth-users';
+    singularName: 'auth-user';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-user.auth-user'
+    > &
+      Schema.Attribute.Private;
+    Note: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    RoleIDs: Schema.Attribute.Relation<'oneToMany', 'api::auth-role.auth-role'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Wallet: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 42;
+        minLength: 42;
+      }>;
+  };
+}
+
 export interface ApiBoostBoost extends Struct.SingleTypeSchema {
   collectionName: 'boosts';
   info: {
@@ -2113,6 +2224,9 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::account.account': ApiAccountAccount;
+      'api::auth-resource.auth-resource': ApiAuthResourceAuthResource;
+      'api::auth-role.auth-role': ApiAuthRoleAuthRole;
+      'api::auth-user.auth-user': ApiAuthUserAuthUser;
       'api::boost.boost': ApiBoostBoost;
       'api::buy-poolz.buy-poolz': ApiBuyPoolzBuyPoolz;
       'api::buy-with.buy-with': ApiBuyWithBuyWith;

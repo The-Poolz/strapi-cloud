@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auth_resources",
+  "info": {
+    "singularName": "auth-resource",
+    "pluralName": "auth-resources",
+    "displayName": "Auth Resources",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "maxLength": 256
+    },
+    "RoleIDs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::auth-role.auth-role"
+    }
+  }
+}

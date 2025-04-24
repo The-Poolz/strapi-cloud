@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auth_users",
+  "info": {
+    "singularName": "auth-user",
+    "pluralName": "auth-users",
+    "displayName": "Auth Users",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Wallet": {
+      "type": "string",
+      "maxLength": 42,
+      "minLength": 42,
+      "regex": "^(0x)?[0-9a-fA-F]{40}$",
+      "required": true,
+      "unique": true
+    },
+    "Note": {
+      "type": "string",
+      "maxLength": 256,
+      "required": true
+    },
+    "RoleIDs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::auth-role.auth-role"
+    }
+  }
+}
