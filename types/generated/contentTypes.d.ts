@@ -463,6 +463,10 @@ export interface ApiAuthAdministratorAuthAdministrator
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
+    OnlyAdminResources: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-resource.auth-resource'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

@@ -22,6 +22,11 @@
       "type": "string",
       "maxLength": 256,
       "required": true
+    },
+    "OnlyAdminResources": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::auth-resource.auth-resource"
     }
   }
 }
