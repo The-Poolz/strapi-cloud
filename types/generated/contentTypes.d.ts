@@ -677,6 +677,10 @@ export interface ApiChainSettingChainSetting
       'manyToOne',
       'api::lock-token-whitelist.lock-token-whitelist'
     >;
+    projects_informations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::projects-information.projects-information'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     scannerTxUrl: Schema.Attribute.String;
     Show: Schema.Attribute.Boolean;
@@ -1602,7 +1606,7 @@ export interface ApiProjectsInformationProjectsInformation
     Block: Schema.Attribute.Media<'images'>;
     blockLocations: Schema.Attribute.String;
     chain_setting: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'api::chain-setting.chain-setting'
     >;
     coingeckoKey: Schema.Attribute.String;
