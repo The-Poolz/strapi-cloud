@@ -19,8 +19,9 @@
     },
     "RoleIDs": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::auth-role.auth-role"
+      "relation": "manyToMany",
+      "target": "api::auth-role.auth-role",
+      "inversedBy": "ResourceIDs"
     }
   }
 }

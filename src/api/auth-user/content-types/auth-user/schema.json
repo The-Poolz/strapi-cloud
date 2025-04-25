@@ -22,12 +22,14 @@
     "Note": {
       "type": "string",
       "maxLength": 256,
-      "required": true
+      "required": true,
+      "private": true
     },
     "RoleIDs": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::auth-role.auth-role"
+      "relation": "manyToMany",
+      "target": "api::auth-role.auth-role",
+      "inversedBy": "UserIDs"
     }
   }
 }

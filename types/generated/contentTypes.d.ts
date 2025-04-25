@@ -441,6 +441,7 @@ export interface ApiAuthAdministratorAuthAdministrator
   extends Struct.CollectionTypeSchema {
   collectionName: 'auth_administrators';
   info: {
+    description: '';
     displayName: 'Auth Administrators';
     pluralName: 'auth-administrators';
     singularName: 'auth-administrator';
@@ -460,6 +461,7 @@ export interface ApiAuthAdministratorAuthAdministrator
       Schema.Attribute.Private;
     Note: Schema.Attribute.String &
       Schema.Attribute.Required &
+      Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
@@ -538,7 +540,10 @@ export interface ApiAuthResourceAuthResource
         maxLength: 256;
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    RoleIDs: Schema.Attribute.Relation<'oneToMany', 'api::auth-role.auth-role'>;
+    RoleIDs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::auth-role.auth-role'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -573,9 +578,17 @@ export interface ApiAuthRoleAuthRole extends Struct.CollectionTypeSchema {
         maxLength: 256;
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    ResourceIDs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::auth-resource.auth-resource'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    UserIDs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::auth-user.auth-user'
+    >;
   };
 }
 
@@ -602,11 +615,15 @@ export interface ApiAuthUserAuthUser extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Note: Schema.Attribute.String &
       Schema.Attribute.Required &
+      Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    RoleIDs: Schema.Attribute.Relation<'oneToMany', 'api::auth-role.auth-role'>;
+    RoleIDs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::auth-role.auth-role'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

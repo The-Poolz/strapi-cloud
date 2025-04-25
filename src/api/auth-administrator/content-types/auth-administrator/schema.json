@@ -4,7 +4,8 @@
   "info": {
     "singularName": "auth-administrator",
     "pluralName": "auth-administrators",
-    "displayName": "Auth Administrators"
+    "displayName": "Auth Administrators",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +22,8 @@
     "Note": {
       "type": "string",
       "maxLength": 256,
-      "required": true
+      "required": true,
+      "private": true
     }
   }
 }
