@@ -895,6 +895,7 @@ export interface ApiContractContract extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    EvmVersion: Schema.Attribute.String;
     GitLink: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -906,11 +907,21 @@ export interface ApiContractContract extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.DefaultTo<'<ContractName>@1.0.0'>;
+    optimizerEnabled: Schema.Attribute.Boolean;
+    PragmaVersion: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     ReleaseNotes: Schema.Attribute.Text;
+    runs: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    viaIR: Schema.Attribute.Boolean;
   };
 }
 
