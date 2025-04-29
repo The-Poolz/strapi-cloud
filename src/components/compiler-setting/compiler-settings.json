@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_compiler_setting_compiler_settings",
+  "info": {
+    "displayName": "Compiler settings",
+    "icon": "gate",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "evm_version": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::evm-version.evm-version"
+    },
+    "supported_pragma_version": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pragma-version.pragma-version"
+    },
+    "optimizerEnabled": {
+      "type": "boolean"
+    },
+    "runs": {
+      "type": "integer",
+      "default": 200
+    },
+    "viaIR": {
+      "type": "boolean"
+    }
+  }
+}

@@ -31,23 +31,10 @@
     "GitLink": {
       "type": "string"
     },
-    "EvmVersion": {
-      "type": "string",
-      "regex": "\\bhomestead\\b|\\btangerineWhistle\\b|\\bspuriousDragon\\b|\\bbyzantium\\b|\\bconstantinople\\b|\\bpetersburg\\b|\\bistanbul\\b|\\bberlin\\b|\\blondon\\b|\\bparis\\b|\\bshanghai\\b|\\bcancun\\b|\\bprague\\b|\\bosaka\\b"
-    },
-    "PragmaVersion": {
-      "type": "string",
-      "regex": "\\^?\\d+\\.\\d+\\.\\d+"
-    },
-    "optimizerEnabled": {
-      "type": "boolean"
-    },
-    "runs": {
-      "type": "integer",
-      "min": 0
-    },
-    "viaIR": {
-      "type": "boolean"
+    "CompilerSetting": {
+      "type": "component",
+      "repeatable": false,
+      "component": "compiler-setting.compiler-settings"
     }
   }
 }

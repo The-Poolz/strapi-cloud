@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pragma_versions",
+  "info": {
+    "singularName": "pragma-version",
+    "pluralName": "pragma-versions",
+    "displayName": "Pragma versions",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "PragmaVersion": {
+      "type": "string",
+      "regex": "\\^?\\d+\\.\\d+\\.\\d+"
+    }
+  }
+}

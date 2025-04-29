@@ -892,10 +892,13 @@ export interface ApiContractContract extends Struct.CollectionTypeSchema {
   attributes: {
     ABI: Schema.Attribute.JSON;
     ByteCode: Schema.Attribute.JSON;
+    CompilerSetting: Schema.Attribute.Component<
+      'compiler-setting.compiler-settings',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    EvmVersion: Schema.Attribute.String;
     GitLink: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -907,21 +910,11 @@ export interface ApiContractContract extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.DefaultTo<'<ContractName>@1.0.0'>;
-    optimizerEnabled: Schema.Attribute.Boolean;
-    PragmaVersion: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     ReleaseNotes: Schema.Attribute.Text;
-    runs: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 0;
-        },
-        number
-      >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    viaIR: Schema.Attribute.Boolean;
   };
 }
 
@@ -1021,6 +1014,34 @@ export interface ApiDefaultWalletDefaultWallet
       Schema.Attribute.Private;
     Name: Schema.Attribute.String & Schema.Attribute.Required;
     order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEvmVersionEvmVersion extends Struct.CollectionTypeSchema {
+  collectionName: 'evm_versions';
+  info: {
+    displayName: 'EVM Version';
+    pluralName: 'evm-versions';
+    singularName: 'evm-version';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    EVMVersion: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::evm-version.evm-version'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1657,6 +1678,36 @@ export interface ApiPoolzBoutiquePoolzBoutique
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     WebSite: Schema.Attribute.String;
+  };
+}
+
+export interface ApiPragmaVersionPragmaVersion
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pragma_versions';
+  info: {
+    description: '';
+    displayName: 'Pragma versions';
+    pluralName: 'pragma-versions';
+    singularName: 'pragma-version';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pragma-version.pragma-version'
+    > &
+      Schema.Attribute.Private;
+    PragmaVersion: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2344,6 +2395,7 @@ declare module '@strapi/strapi' {
       'api::contracts-on-chain.contracts-on-chain': ApiContractsOnChainContractsOnChain;
       'api::cover.cover': ApiCoverCover;
       'api::default-wallet.default-wallet': ApiDefaultWalletDefaultWallet;
+      'api::evm-version.evm-version': ApiEvmVersionEvmVersion;
       'api::footer.footer': ApiFooterFooter;
       'api::grow-badge.grow-badge': ApiGrowBadgeGrowBadge;
       'api::grow.grow': ApiGrowGrow;
@@ -2363,6 +2415,7 @@ declare module '@strapi/strapi' {
       'api::our-partner.our-partner': ApiOurPartnerOurPartner;
       'api::page-info.page-info': ApiPageInfoPageInfo;
       'api::poolz-boutique.poolz-boutique': ApiPoolzBoutiquePoolzBoutique;
+      'api::pragma-version.pragma-version': ApiPragmaVersionPragmaVersion;
       'api::privacy.privacy': ApiPrivacyPrivacy;
       'api::projects-information.projects-information': ApiProjectsInformationProjectsInformation;
       'api::staking-cool-down.staking-cool-down': ApiStakingCoolDownStakingCoolDown;

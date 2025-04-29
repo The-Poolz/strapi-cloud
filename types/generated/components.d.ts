@@ -30,6 +30,29 @@ export interface ColorIconColorIcon extends Struct.ComponentSchema {
   };
 }
 
+export interface CompilerSettingCompilerSettings
+  extends Struct.ComponentSchema {
+  collectionName: 'components_compiler_setting_compiler_settings';
+  info: {
+    description: '';
+    displayName: 'Compiler settings';
+    icon: 'gate';
+  };
+  attributes: {
+    evm_version: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::evm-version.evm-version'
+    >;
+    optimizerEnabled: Schema.Attribute.Boolean;
+    runs: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<200>;
+    supported_pragma_version: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::pragma-version.pragma-version'
+    >;
+    viaIR: Schema.Attribute.Boolean;
+  };
+}
+
 export interface ContractOnChainContractOnChain extends Struct.ComponentSchema {
   collectionName: 'components_contract_on_chain_contract_on_chains';
   info: {
@@ -334,6 +357,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'chain-addresses.chain-addresses': ChainAddressesChainAddresses;
       'color-icon.color-icon': ColorIconColorIcon;
+      'compiler-setting.compiler-settings': CompilerSettingCompilerSettings;
       'contract-on-chain.contract-on-chain': ContractOnChainContractOnChain;
       'dictionary.links': DictionaryLinks;
       'full-token-distribution.full-token-distribution': FullTokenDistributionFullTokenDistribution;

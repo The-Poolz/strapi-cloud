@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "evm_versions",
+  "info": {
+    "singularName": "evm-version",
+    "pluralName": "evm-versions",
+    "displayName": "EVM Version"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "EVMVersion": {
+      "type": "string"
+    }
+  }
+}
