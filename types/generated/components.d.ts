@@ -291,6 +291,7 @@ export interface TokenDistributionTokenDistribution
 export interface TokenomicsTokenomics extends Struct.ComponentSchema {
   collectionName: 'components_tokenomics_tokenomics';
   info: {
+    description: '';
     displayName: 'Tokenomics';
   };
   attributes: {
@@ -298,6 +299,7 @@ export interface TokenomicsTokenomics extends Struct.ComponentSchema {
     MarketCap: Schema.Attribute.String;
     Symbol: Schema.Attribute.String;
     TGEMarketCap: Schema.Attribute.String;
+    TokenPrice: Schema.Attribute.String;
     TotalRaise: Schema.Attribute.String;
     TotalSupply: Schema.Attribute.String;
     USDPrice: Schema.Attribute.Decimal;

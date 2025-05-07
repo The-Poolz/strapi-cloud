@@ -1,7 +1,8 @@
 {
   "collectionName": "components_tokenomics_tokenomics",
   "info": {
-    "displayName": "Tokenomics"
+    "displayName": "Tokenomics",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -34,6 +35,9 @@
       "type": "decimal"
     },
     "TotalRaise": {
+      "type": "string"
+    },
+    "TokenPrice": {
       "type": "string"
     }
   }
