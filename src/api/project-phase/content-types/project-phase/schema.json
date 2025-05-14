@@ -11,12 +11,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "projects_information": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::projects-information.projects-information",
-      "inversedBy": "project_phases"
-    },
     "StartTime": {
       "type": "datetime",
       "required": true
@@ -30,9 +24,11 @@
       "required": true,
       "min": 0
     },
-    "IsWhiteList": {
-      "type": "boolean",
-      "required": true
+    "projects_information": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::projects-information.projects-information",
+      "inversedBy": "project_phases"
     }
   }
 }

@@ -1757,7 +1757,6 @@ export interface ApiProjectPhaseProjectPhase
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     EndTime: Schema.Attribute.DateTime & Schema.Attribute.Required;
-    IsWhiteList: Schema.Attribute.Boolean & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
