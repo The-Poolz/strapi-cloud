@@ -1770,7 +1770,8 @@ export interface ApiProjectPhaseProjectPhase
           min: 0;
         },
         number
-      >;
+      > &
+      Schema.Attribute.DefaultTo<0>;
     projects_information: Schema.Attribute.Relation<
       'manyToOne',
       'api::projects-information.projects-information'
