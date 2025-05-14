@@ -1740,6 +1740,50 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiProjectPhaseProjectPhase
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'project_phases';
+  info: {
+    description: '';
+    displayName: 'ProjectPhase';
+    pluralName: 'project-phases';
+    singularName: 'project-phase';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    EndTime: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    IsWhiteList: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project-phase.project-phase'
+    > &
+      Schema.Attribute.Private;
+    MaxInvest: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    projects_information: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::projects-information.projects-information'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    StartTime: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProjectsInformationProjectsInformation
   extends Struct.CollectionTypeSchema {
   collectionName: 'projects_informations';
@@ -1791,6 +1835,10 @@ export interface ApiProjectsInformationProjectsInformation
     PoolzBackId: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0>;
+    project_phases: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project-phase.project-phase'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     StartTime: Schema.Attribute.DateTime;
     Syntetic: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
@@ -2417,6 +2465,7 @@ declare module '@strapi/strapi' {
       'api::poolz-boutique.poolz-boutique': ApiPoolzBoutiquePoolzBoutique;
       'api::pragma-version.pragma-version': ApiPragmaVersionPragmaVersion;
       'api::privacy.privacy': ApiPrivacyPrivacy;
+      'api::project-phase.project-phase': ApiProjectPhaseProjectPhase;
       'api::projects-information.projects-information': ApiProjectsInformationProjectsInformation;
       'api::staking-cool-down.staking-cool-down': ApiStakingCoolDownStakingCoolDown;
       'api::vault-faq.vault-faq': ApiVaultFaqVaultFaq;

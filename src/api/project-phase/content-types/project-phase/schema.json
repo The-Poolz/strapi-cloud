@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_phases",
+  "info": {
+    "singularName": "project-phase",
+    "pluralName": "project-phases",
+    "displayName": "ProjectPhase",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "projects_information": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::projects-information.projects-information",
+      "inversedBy": "project_phases"
+    },
+    "StartTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "EndTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "MaxInvest": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "IsWhiteList": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}
