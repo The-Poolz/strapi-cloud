@@ -16,7 +16,7 @@
     "@strapi/plugin-color-picker": "^5.11.2",
     "@strapi/plugin-graphql": "^5.11.0",
     "@strapi/plugin-users-permissions": "5.11.0",
-    "@strapi/strapi": "^5.12.7",
+    "@strapi/strapi": "^5.13.0",
     "better-sqlite3": "11.3.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
