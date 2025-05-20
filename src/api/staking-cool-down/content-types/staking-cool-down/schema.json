@@ -4,23 +4,29 @@
   "info": {
     "singularName": "staking-cool-down",
     "pluralName": "staking-cool-downs",
-    "displayName": "StakingCoolDown"
+    "displayName": "StakingCoolDown",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "Amount": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "CoolDownPeriod": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "type": {
-      "type": "integer"
+      "type": "integer",
+      "required": true,
+      "default": 0
     },
     "text": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }
