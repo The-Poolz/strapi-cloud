@@ -4,6 +4,7 @@ module.exports = {
       landingPage: true, // If you also want the Sandbox in production
       apolloServer: {
         introspection: true, // Enable introspection queries
+        allowBatchedHttpRequests: true,
       },
     },
   },
