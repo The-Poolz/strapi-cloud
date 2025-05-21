@@ -302,7 +302,6 @@ export interface TokenomicsTokenomics extends Struct.ComponentSchema {
     TokenPrice: Schema.Attribute.String;
     TotalRaise: Schema.Attribute.String;
     TotalSupply: Schema.Attribute.String;
-    USDPrice: Schema.Attribute.Decimal;
     VisualInfo: Schema.Attribute.Media<'images' | 'files'>;
   };
 }
