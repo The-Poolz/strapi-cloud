@@ -31,9 +31,6 @@
     "TotalSupply": {
       "type": "string"
     },
-    "USDPrice": {
-      "type": "decimal"
-    },
     "TotalRaise": {
       "type": "string"
     },
