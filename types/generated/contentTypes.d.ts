@@ -1862,6 +1862,7 @@ export interface ApiStakingCoolDownStakingCoolDown
   extends Struct.CollectionTypeSchema {
   collectionName: 'staking_cool_downs';
   info: {
+    description: '';
     displayName: 'StakingCoolDown';
     pluralName: 'staking-cool-downs';
     singularName: 'staking-cool-down';
@@ -1870,8 +1871,8 @@ export interface ApiStakingCoolDownStakingCoolDown
     draftAndPublish: true;
   };
   attributes: {
-    Amount: Schema.Attribute.String;
-    CoolDownPeriod: Schema.Attribute.String;
+    Amount: Schema.Attribute.String & Schema.Attribute.Required;
+    CoolDownPeriod: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1882,8 +1883,10 @@ export interface ApiStakingCoolDownStakingCoolDown
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    text: Schema.Attribute.Text;
-    type: Schema.Attribute.Integer;
+    text: Schema.Attribute.Text & Schema.Attribute.Required;
+    type: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
