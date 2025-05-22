@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_phase_start_end_amounts",
+  "info": {
+    "displayName": "StartEndAmount"
+  },
+  "options": {},
+  "attributes": {
+    "Start": {
+      "type": "datetime",
+      "required": true
+    },
+    "Finish": {
+      "type": "datetime",
+      "required": true
+    },
+    "MaxInvest": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
+    }
+  }
+}

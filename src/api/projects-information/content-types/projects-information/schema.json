@@ -119,11 +119,11 @@
     "blockLocations": {
       "type": "string"
     },
-    "project_phases": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::project-phase.project-phase",
-      "mappedBy": "projects_information"
+    "ProjectPhases": {
+      "displayName": "StartEndAmount",
+      "type": "component",
+      "repeatable": true,
+      "component": "phase.start-end-amount"
     }
   }
 }
