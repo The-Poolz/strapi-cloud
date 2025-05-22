@@ -118,6 +118,12 @@
     },
     "blockLocations": {
       "type": "string"
+    },
+    "ProjectPhases": {
+      "displayName": "StartEndAmount",
+      "type": "component",
+      "repeatable": true,
+      "component": "phase.start-end-amount"
     }
   }
 }

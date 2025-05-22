@@ -207,6 +207,20 @@ export interface OverviewOverview extends Struct.ComponentSchema {
   };
 }
 
+export interface PhaseStartEndAmount extends Struct.ComponentSchema {
+  collectionName: 'components_phase_start_end_amounts';
+  info: {
+    displayName: 'StartEndAmount';
+  };
+  attributes: {
+    Finish: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    MaxInvest: Schema.Attribute.BigInteger &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'0'>;
+    Start: Schema.Attribute.DateTime & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionSection extends Struct.ComponentSchema {
   collectionName: 'components_section_sections';
   info: {
@@ -369,6 +383,7 @@ declare module '@strapi/strapi' {
       'investors.investors': InvestorsInvestors;
       'main-cta.main-cta': MainCtaMainCta;
       'overview.overview': OverviewOverview;
+      'phase.start-end-amount': PhaseStartEndAmount;
       'section.section': SectionSection;
       'simple-url.simple-url': SimpleUrlSimpleUrl;
       'smart-links.smart-links': SmartLinksSmartLinks;

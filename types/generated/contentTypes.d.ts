@@ -1795,6 +1795,7 @@ export interface ApiProjectsInformationProjectsInformation
     PoolzBackId: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0>;
+    ProjectPhases: Schema.Attribute.Component<'phase.start-end-amount', true>;
     publishedAt: Schema.Attribute.DateTime;
     StartTime: Schema.Attribute.DateTime;
     Syntetic: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
