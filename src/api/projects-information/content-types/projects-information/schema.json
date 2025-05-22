@@ -118,12 +118,6 @@
     },
     "blockLocations": {
       "type": "string"
-    },
-    "project_phases": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::project-phase.project-phase",
-      "mappedBy": "projects_information"
     }
   }
 }
