@@ -34,10 +34,6 @@ export interface AdminApiToken extends Struct.CollectionTypeSchema {
         minLength: 1;
       }> &
       Schema.Attribute.DefaultTo<''>;
-    encryptedKey: Schema.Attribute.Text &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
     expiresAt: Schema.Attribute.DateTime;
     lastUsedAt: Schema.Attribute.DateTime;
     lifespan: Schema.Attribute.BigInteger;
@@ -846,7 +842,7 @@ export interface ApiConditionCondition extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Value: Schema.Attribute.RichText;
+    Value: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
@@ -1266,7 +1262,7 @@ export interface ApiInvestTermInvestTerm extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Value: Schema.Attribute.RichText;
+    Value: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
@@ -1388,7 +1384,7 @@ export interface ApiLockPoolzTermLockPoolzTerm extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Value: Schema.Attribute.RichText;
+    Value: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
@@ -1740,7 +1736,7 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Value: Schema.Attribute.RichText;
+    Value: Schema.Attribute.RichText & Schema.Attribute.Required;
   };
 }
 
