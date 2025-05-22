@@ -12,7 +12,8 @@
   },
   "attributes": {
     "Value": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     }
   }
 }
