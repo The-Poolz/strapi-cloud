@@ -12,13 +12,16 @@
   },
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "smallText": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "BOT_CTA_Text": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "htmlColorText": {
       "type": "component",
@@ -43,6 +46,14 @@
         "images",
         "files"
       ]
+    },
+    "TopBg": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
     }
   }
 }

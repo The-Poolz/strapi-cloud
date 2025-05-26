@@ -140,11 +140,14 @@ export interface HighlightsHighlights extends Struct.ComponentSchema {
 export interface HtmlColorTextHtmlColorText extends Struct.ComponentSchema {
   collectionName: 'components_html_color_text_html_color_texts';
   info: {
+    description: '';
     displayName: 'htmlColorText';
   };
   attributes: {
-    text: Schema.Attribute.String;
-    url: Schema.Attribute.Text;
+    color: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

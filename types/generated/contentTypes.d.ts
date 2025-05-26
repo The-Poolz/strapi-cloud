@@ -381,7 +381,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    BOT_CTA_Text: Schema.Attribute.Text;
+    BOT_CTA_Text: Schema.Attribute.Text & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -399,8 +399,9 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
     MainCTA: Schema.Attribute.Component<'main-cta.main-cta', true>;
     publishedAt: Schema.Attribute.DateTime;
     sliders: Schema.Attribute.Media<'images' | 'files', true>;
-    smallText: Schema.Attribute.Text;
-    Title: Schema.Attribute.String;
+    smallText: Schema.Attribute.Text & Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    TopBg: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
