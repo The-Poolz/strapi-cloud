@@ -148,6 +148,7 @@ export interface HtmlColorTextHtmlColorText extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     text: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String;
   };
 }
 
