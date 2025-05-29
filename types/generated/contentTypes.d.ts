@@ -1792,6 +1792,7 @@ export interface ApiProjectsInformationProjectsInformation
     Logo: Schema.Attribute.Media<'images'>;
     MainListShow: Schema.Attribute.Boolean;
     Name: Schema.Attribute.String & Schema.Attribute.Required;
+    Order: Schema.Attribute.Integer;
     Original: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
     PoolzBackId: Schema.Attribute.Integer &
       Schema.Attribute.Required &
