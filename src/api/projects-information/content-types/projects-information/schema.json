@@ -10,6 +10,7 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "CryptorankKey": {
       "type": "string"
@@ -34,8 +35,7 @@
       "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "pluginOptions": {}
+      ]
     },
     "Block": {
       "type": "media",
@@ -43,8 +43,7 @@
       "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "pluginOptions": {}
+      ]
     },
     "StartTime": {
       "type": "datetime"
@@ -54,13 +53,13 @@
     },
     "VisualText": {
       "type": "component",
-      "repeatable": false,
-      "component": "visual-text.visual-text"
+      "component": "visual-text.visual-text",
+      "repeatable": false
     },
     "UploadPool": {
       "type": "component",
-      "repeatable": false,
-      "component": "upload-pool.upload-pool"
+      "component": "upload-pool.upload-pool",
+      "repeatable": false
     },
     "IsShow": {
       "type": "boolean",
@@ -72,18 +71,18 @@
     },
     "Syntetic": {
       "type": "component",
-      "repeatable": false,
-      "component": "synthetic-zone.syntetic"
+      "component": "synthetic-zone.syntetic",
+      "repeatable": false
     },
     "Original": {
       "type": "component",
-      "repeatable": false,
-      "component": "synthetic-zone.syntetic"
+      "component": "synthetic-zone.syntetic",
+      "repeatable": false
     },
     "Investors": {
       "type": "component",
-      "repeatable": true,
-      "component": "investors.investors"
+      "component": "investors.investors",
+      "repeatable": true
     },
     "coinmarketcapKey": {
       "type": "string"
@@ -96,8 +95,8 @@
     },
     "FullTokenDistribution": {
       "type": "component",
-      "repeatable": false,
-      "component": "full-token-distribution.full-token-distribution"
+      "component": "full-token-distribution.full-token-distribution",
+      "repeatable": false
     },
     "ATHROI": {
       "type": "decimal"
@@ -120,10 +119,12 @@
       "type": "string"
     },
     "ProjectPhases": {
-      "displayName": "StartEndAmount",
       "type": "component",
-      "repeatable": true,
-      "component": "phase.start-end-amount"
+      "component": "phase.start-end-amount",
+      "repeatable": true
+    },
+    "Order": {
+      "type": "integer"
     }
   }
 }
