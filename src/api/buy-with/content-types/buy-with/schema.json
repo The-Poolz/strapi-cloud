@@ -20,6 +20,9 @@
       "type": "component",
       "repeatable": true,
       "component": "chain-addresses.chain-addresses"
+    },
+    "SourcePoolId": {
+      "type": "biginteger"
     }
   }
 }
