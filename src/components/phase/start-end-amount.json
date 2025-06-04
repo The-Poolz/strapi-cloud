@@ -7,7 +7,8 @@
   "attributes": {
     "Start": {
       "type": "datetime",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "Finish": {
       "type": "datetime",
@@ -15,8 +16,8 @@
     },
     "MaxInvest": {
       "type": "biginteger",
-      "default": "0",
-      "required": true
+      "required": true,
+      "default": "0"
     }
   }
 }
