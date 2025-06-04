@@ -221,7 +221,9 @@ export interface PhaseStartEndAmount extends Struct.ComponentSchema {
     MaxInvest: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'0'>;
-    Start: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    Start: Schema.Attribute.DateTime &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
   };
 }
 
