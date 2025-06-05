@@ -45,12 +45,6 @@
         "images"
       ]
     },
-    "StartTime": {
-      "type": "datetime"
-    },
-    "FinishTime": {
-      "type": "datetime"
-    },
     "VisualText": {
       "type": "component",
       "component": "visual-text.visual-text",
@@ -62,10 +56,6 @@
       "repeatable": false
     },
     "IsShow": {
-      "type": "boolean",
-      "required": true
-    },
-    "IsTimeTBA": {
       "type": "boolean",
       "required": true
     },
