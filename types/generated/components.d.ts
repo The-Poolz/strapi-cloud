@@ -94,7 +94,8 @@ export interface FullTokenDistributionFullTokenDistribution
     displayName: 'FullTokenDistribution';
   };
   attributes: {
-    DistributionType: Schema.Attribute.String;
+    DistributionType: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Claiming from Poolz Finance system'>;
     Monthly: Schema.Attribute.Component<
       'token-distribution.token-distribution',
       true
@@ -301,10 +302,30 @@ export interface TokenDistributionTokenDistribution
     displayName: 'TokenDistribution';
   };
   attributes: {
-    IsTimeTBA: Schema.Attribute.Boolean;
-    Ratio: Schema.Attribute.Decimal;
-    StartTime: Schema.Attribute.DateTime;
-    Unlock: Schema.Attribute.DateTime;
+    ByTheBlock: Schema.Attribute.Component<'tokenomics.by-the-block', false>;
+    Percent: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    Precision: Schema.Attribute.Component<'tokenomics.precision', false>;
+    Start: Schema.Attribute.DateTime & Schema.Attribute.Required;
+  };
+}
+
+export interface TokenomicsByTheBlock extends Struct.ComponentSchema {
+  collectionName: 'components_tokenomics_by_the_blocks';
+  info: {
+    displayName: 'ByTheBlock';
+  };
+  attributes: {
+    Finish: Schema.Attribute.DateTime;
+  };
+}
+
+export interface TokenomicsPrecision extends Struct.ComponentSchema {
+  collectionName: 'components_tokenomics_precisions';
+  info: {
+    displayName: 'precision';
+  };
+  attributes: {
+    Decimals: Schema.Attribute.BigInteger & Schema.Attribute.Required;
   };
 }
 
@@ -395,6 +416,8 @@ declare module '@strapi/strapi' {
       'smart-links.smart-links': SmartLinksSmartLinks;
       'synthetic-zone.syntetic': SyntheticZoneSyntetic;
       'token-distribution.token-distribution': TokenDistributionTokenDistribution;
+      'tokenomics.by-the-block': TokenomicsByTheBlock;
+      'tokenomics.precision': TokenomicsPrecision;
       'tokenomics.tokenomics': TokenomicsTokenomics;
       'upload-pool.upload-pool': UploadPoolUploadPool;
       'version.version': VersionVersion;

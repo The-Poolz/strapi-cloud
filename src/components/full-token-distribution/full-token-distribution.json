@@ -7,19 +7,20 @@
   "attributes": {
     "TGE": {
       "type": "component",
-      "repeatable": false,
-      "component": "token-distribution.token-distribution"
+      "component": "token-distribution.token-distribution",
+      "repeatable": false
     },
     "Monthly": {
       "type": "component",
-      "repeatable": true,
-      "component": "token-distribution.token-distribution"
+      "component": "token-distribution.token-distribution",
+      "repeatable": true
     },
     "Text": {
       "type": "text"
     },
     "DistributionType": {
-      "type": "string"
+      "type": "string",
+      "default": "Claiming from Poolz Finance system"
     },
     "non_evm_chain": {
       "type": "relation",

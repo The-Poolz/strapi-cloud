@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_tokenomics_by_the_blocks",
+  "info": {
+    "displayName": "ByTheBlock"
+  },
+  "options": {},
+  "attributes": {
+    "Finish": {
+      "type": "datetime"
+    }
+  },
+  "config": {}
+}

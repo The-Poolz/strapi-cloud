@@ -5,17 +5,23 @@
   },
   "options": {},
   "attributes": {
-    "Unlock": {
-      "type": "datetime"
+    "Start": {
+      "type": "datetime",
+      "required": true
     },
-    "Ratio": {
-      "type": "decimal"
+    "Percent": {
+      "type": "decimal",
+      "required": true
     },
-    "IsTimeTBA": {
-      "type": "boolean"
+    "ByTheBlock": {
+      "type": "component",
+      "component": "tokenomics.by-the-block",
+      "repeatable": false
     },
-    "StartTime": {
-      "type": "datetime"
+    "Precision": {
+      "type": "component",
+      "component": "tokenomics.precision",
+      "repeatable": false
     }
   }
 }
