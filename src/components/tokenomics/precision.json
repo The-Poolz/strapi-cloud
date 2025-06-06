@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_tokenomics_precisions",
+  "info": {
+    "displayName": "precision"
+  },
+  "options": {},
+  "attributes": {
+    "Decimals": {
+      "type": "biginteger",
+      "required": true
+    }
+  },
+  "config": {}
+}
