@@ -17,14 +17,14 @@
       "unique": true,
       "regex": "^(0x)?[0-9a-fA-F]{40}$"
     },
-    "Amount": {
-      "type": "decimal",
-      "required": true,
-      "max": 0
-    },
     "Note": {
       "type": "string",
       "required": true
+    },
+    "Amount": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
     }
   }
 }
