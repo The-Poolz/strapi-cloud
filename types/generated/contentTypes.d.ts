@@ -1243,6 +1243,38 @@ export interface ApiIdoBadgeIdoBadge extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiIgnoreLeaderBoardWalletIgnoreLeaderBoardWallet
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'ignore_leader_board_wallets';
+  info: {
+    displayName: 'IgnoreLeaderBoardWallet';
+    pluralName: 'ignore-leader-board-wallets';
+    singularName: 'ignore-leader-board-wallet';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ignore-leader-board-wallet.ignore-leader-board-wallet'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Reason: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Wallet: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface ApiInvestTermInvestTerm extends Struct.SingleTypeSchema {
   collectionName: 'invest_terms';
   info: {
@@ -2412,6 +2444,7 @@ declare module '@strapi/strapi' {
       'api::grow.grow': ApiGrowGrow;
       'api::header.header': ApiHeaderHeader;
       'api::ido-badge.ido-badge': ApiIdoBadgeIdoBadge;
+      'api::ignore-leader-board-wallet.ignore-leader-board-wallet': ApiIgnoreLeaderBoardWalletIgnoreLeaderBoardWallet;
       'api::invest-term.invest-term': ApiInvestTermInvestTerm;
       'api::investor.investor': ApiInvestorInvestor;
       'api::latest-type.latest-type': ApiLatestTypeLatestType;
