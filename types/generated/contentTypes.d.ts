@@ -1271,10 +1271,7 @@ export interface ApiIgnoreLeaderBoardWalletIgnoreLeaderBoardWallet
       Schema.Attribute.Private;
     Wallet: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 42;
-      }>;
+      Schema.Attribute.Unique;
   };
 }
 
