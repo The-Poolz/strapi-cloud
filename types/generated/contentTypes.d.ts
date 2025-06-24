@@ -1843,7 +1843,6 @@ export interface ApiProjectsInformationProjectsInformation
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     CryptorankKey: Schema.Attribute.String;
-    FinishTime: Schema.Attribute.DateTime;
     FullTokenDistribution: Schema.Attribute.Component<
       'full-token-distribution.full-token-distribution',
       false
@@ -1854,7 +1853,6 @@ export interface ApiProjectsInformationProjectsInformation
     >;
     Investors: Schema.Attribute.Component<'investors.investors', true>;
     IsShow: Schema.Attribute.Boolean & Schema.Attribute.Required;
-    IsTimeTBA: Schema.Attribute.Boolean & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1871,7 +1869,6 @@ export interface ApiProjectsInformationProjectsInformation
       Schema.Attribute.DefaultTo<0>;
     ProjectPhases: Schema.Attribute.Component<'phase.start-end-amount', true>;
     publishedAt: Schema.Attribute.DateTime;
-    StartTime: Schema.Attribute.DateTime;
     Syntetic: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
