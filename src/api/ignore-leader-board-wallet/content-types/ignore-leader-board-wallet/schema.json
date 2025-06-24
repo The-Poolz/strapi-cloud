@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ignore_leader_board_wallets",
+  "info": {
+    "singularName": "ignore-leader-board-wallet",
+    "pluralName": "ignore-leader-board-wallets",
+    "displayName": "IgnoreLeaderBoardWallet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Wallet": {
+      "type": "string",
+      "minLength": 42,
+      "required": true,
+      "unique": true,
+      "regex": "^(0x)?[0-9a-fA-F]{40}$"
+    },
+    "Reason": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
