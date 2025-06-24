@@ -657,7 +657,7 @@ export interface ApiAutoSignUpAutoSignUp extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 0;
+          min: 0;
         },
         number
       >;
