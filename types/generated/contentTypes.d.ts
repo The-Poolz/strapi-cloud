@@ -642,6 +642,45 @@ export interface ApiAuthUserAuthUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAutoSignUpAutoSignUp extends Struct.CollectionTypeSchema {
+  collectionName: 'auto_sign_ups';
+  info: {
+    displayName: 'AutoSignUp';
+    pluralName: 'auto-sign-ups';
+    singularName: 'auto-sign-up';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Amount: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 0;
+        },
+        number
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auto-sign-up.auto-sign-up'
+    > &
+      Schema.Attribute.Private;
+    Note: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Wallet: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface ApiBoostBoost extends Struct.SingleTypeSchema {
   collectionName: 'boosts';
   info: {
@@ -1243,6 +1282,38 @@ export interface ApiIdoBadgeIdoBadge extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiIgnoreLeaderBoardWalletIgnoreLeaderBoardWallet
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'ignore_leader_board_wallets';
+  info: {
+    displayName: 'IgnoreLeaderBoardWallet';
+    pluralName: 'ignore-leader-board-wallets';
+    singularName: 'ignore-leader-board-wallet';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ignore-leader-board-wallet.ignore-leader-board-wallet'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Reason: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Wallet: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface ApiInvestTermInvestTerm extends Struct.SingleTypeSchema {
   collectionName: 'invest_terms';
   info: {
@@ -1811,6 +1882,46 @@ export interface ApiProjectsInformationProjectsInformation
     WhitelistId: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0>;
+  };
+}
+
+export interface ApiSeasonPassSeasonPass extends Struct.CollectionTypeSchema {
+  collectionName: 'season_passes';
+  info: {
+    displayName: 'SeasonPass';
+    pluralName: 'season-passes';
+    singularName: 'season-pass';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Amount: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::season-pass.season-pass'
+    > &
+      Schema.Attribute.Private;
+    Note: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ValidUntil: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    Wallet: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
   };
 }
 
@@ -2395,6 +2506,7 @@ declare module '@strapi/strapi' {
       'api::auth-resource.auth-resource': ApiAuthResourceAuthResource;
       'api::auth-role.auth-role': ApiAuthRoleAuthRole;
       'api::auth-user.auth-user': ApiAuthUserAuthUser;
+      'api::auto-sign-up.auto-sign-up': ApiAutoSignUpAutoSignUp;
       'api::boost.boost': ApiBoostBoost;
       'api::buy-poolz.buy-poolz': ApiBuyPoolzBuyPoolz;
       'api::buy-with.buy-with': ApiBuyWithBuyWith;
@@ -2412,6 +2524,7 @@ declare module '@strapi/strapi' {
       'api::grow.grow': ApiGrowGrow;
       'api::header.header': ApiHeaderHeader;
       'api::ido-badge.ido-badge': ApiIdoBadgeIdoBadge;
+      'api::ignore-leader-board-wallet.ignore-leader-board-wallet': ApiIgnoreLeaderBoardWalletIgnoreLeaderBoardWallet;
       'api::invest-term.invest-term': ApiInvestTermInvestTerm;
       'api::investor.investor': ApiInvestorInvestor;
       'api::latest-type.latest-type': ApiLatestTypeLatestType;
@@ -2429,6 +2542,7 @@ declare module '@strapi/strapi' {
       'api::pragma-version.pragma-version': ApiPragmaVersionPragmaVersion;
       'api::privacy.privacy': ApiPrivacyPrivacy;
       'api::projects-information.projects-information': ApiProjectsInformationProjectsInformation;
+      'api::season-pass.season-pass': ApiSeasonPassSeasonPass;
       'api::staking-cool-down.staking-cool-down': ApiStakingCoolDownStakingCoolDown;
       'api::vault-faq.vault-faq': ApiVaultFaqVaultFaq;
       'plugin::content-releases.release': PluginContentReleasesRelease;
