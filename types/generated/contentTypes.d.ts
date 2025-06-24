@@ -642,6 +642,45 @@ export interface ApiAuthUserAuthUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAutoSignUpAutoSignUp extends Struct.CollectionTypeSchema {
+  collectionName: 'auto_sign_ups';
+  info: {
+    displayName: 'AutoSignUp';
+    pluralName: 'auto-sign-ups';
+    singularName: 'auto-sign-up';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Amount: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 0;
+        },
+        number
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auto-sign-up.auto-sign-up'
+    > &
+      Schema.Attribute.Private;
+    Note: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Wallet: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface ApiBoostBoost extends Struct.SingleTypeSchema {
   collectionName: 'boosts';
   info: {
@@ -2395,6 +2434,7 @@ declare module '@strapi/strapi' {
       'api::auth-resource.auth-resource': ApiAuthResourceAuthResource;
       'api::auth-role.auth-role': ApiAuthRoleAuthRole;
       'api::auth-user.auth-user': ApiAuthUserAuthUser;
+      'api::auto-sign-up.auto-sign-up': ApiAutoSignUpAutoSignUp;
       'api::boost.boost': ApiBoostBoost;
       'api::buy-poolz.buy-poolz': ApiBuyPoolzBuyPoolz;
       'api::buy-with.buy-with': ApiBuyWithBuyWith;
