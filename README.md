@@ -6,7 +6,7 @@
 npm install
 ```
 
-For first use - make .evn file with this content : https://github.com/strapi/strapi-cloud-template-blog/blob/main/.env.example
+For first use - make a .env file with this content : https://github.com/strapi/strapi-cloud-template-blog/blob/main/.env.example
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
 
@@ -32,6 +32,14 @@ Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-
 
 ```
 npm run build
+```
+
+### `seed:example`
+
+Load the project with example data.
+
+```
+npm run seed:example
 ```
 
 ## ⚙️ Deployment
