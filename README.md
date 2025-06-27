@@ -50,6 +50,17 @@ Strapi gives you many possible deployment options for your project including [St
 npm run deploy
 ```
 
+## 🔄 Update Strapi
+
+We use a GitHub workflow to keep Strapi up to date automatically. You can
+launch the workflow from the
+[Actions page](https://github.com/The-Poolz/strapi-cloud/actions/workflows/update-strapi.yml).
+The badges below display the latest Strapi release and the version currently
+defined in our [package.json](./package.json).
+
+[![Latest Strapi](https://img.shields.io/npm/v/@strapi/strapi/latest.svg?label=latest%20strapi)](https://www.npmjs.com/package/@strapi/strapi)
+[![Current Version](https://img.shields.io/github/package-json/dependency-version/The-Poolz/strapi-cloud/%40strapi/strapi?label=our%20version)](./package.json)
+
 ## 📚 Learn more
 
 - [Resource center](https://strapi.io/resource-center) - Strapi resource center.
