@@ -34,4 +34,4 @@ jobs:
           branch: update-strapi
           base: master
           title: "Update Strapi"
-          body: "This PR updates Strapi using \`npm install @strapi/strapi\`."
+          body: "This PR updates Strapi using `npm install @strapi/strapi`."
