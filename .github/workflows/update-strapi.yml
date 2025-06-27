@@ -3,6 +3,10 @@ name: Manual Update Strapi
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   update-strapi:
     runs-on: ubuntu-latest
