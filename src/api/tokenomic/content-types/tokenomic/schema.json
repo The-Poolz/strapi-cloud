@@ -25,6 +25,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::chain-setting.chain-setting"
+    },
+    "MultiCallContractAddress": {
+      "type": "string",
+      "required": true
     }
   }
 }
