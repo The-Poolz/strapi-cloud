@@ -15,6 +15,11 @@
       "required": true,
       "unique": true,
       "regex": "^0x[a-fA-F0-9]{40}$"
+    },
+    "IsLocked": {
+      "type": "boolean",
+      "required": true,
+      "default": true
     }
   },
   "config": {}

@@ -1983,9 +1983,10 @@ export interface ApiTokenomicTokenomic extends Struct.SingleTypeSchema {
       'api::tokenomic.tokenomic'
     > &
       Schema.Attribute.Private;
+    MultiCallContractAddress: Schema.Attribute.String &
+      Schema.Attribute.Required;
     PoolxToken: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    TheGraphUrl: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
