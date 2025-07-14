@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "tokenomics",
+  "info": {
+    "singularName": "tokenomic",
+    "pluralName": "tokenomics",
+    "displayName": "Tokenomic"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "List": {
+      "type": "component",
+      "component": "chain-addresses.only-address",
+      "repeatable": true
+    }
+  }
+}

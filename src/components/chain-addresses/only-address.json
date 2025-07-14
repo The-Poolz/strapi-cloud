@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_chain_addresses_only_addresses",
+  "info": {
+    "displayName": "OnlyAddress"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Address": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "^0x[a-fA-F0-9]{40}$"
+    }
+  },
+  "config": {}
+}
