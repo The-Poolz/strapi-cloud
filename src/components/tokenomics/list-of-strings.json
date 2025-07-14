@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_tokenomics_list_of_strings",
+  "info": {
+    "displayName": "ListOfStrings",
+    "icon": "paperPlane"
+  },
+  "options": {},
+  "attributes": {
+    "EvmAddress": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "^0x[a-fA-F0-9]{40}$"
+    }
+  },
+  "config": {}
+}

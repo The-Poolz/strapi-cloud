@@ -1958,6 +1958,38 @@ export interface ApiStakingCoolDownStakingCoolDown
   };
 }
 
+export interface ApiTradeContractTradeContract
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'trade_contracts';
+  info: {
+    displayName: 'TradeContract';
+    pluralName: 'trade-contracts';
+    singularName: 'trade-contract';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AdressList: Schema.Attribute.Component<'tokenomics.list-of-strings', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::trade-contract.trade-contract'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVaultFaqVaultFaq extends Struct.CollectionTypeSchema {
   collectionName: 'vault_faqs';
   info: {
@@ -2542,6 +2574,7 @@ declare module '@strapi/strapi' {
       'api::projects-information.projects-information': ApiProjectsInformationProjectsInformation;
       'api::season-pass.season-pass': ApiSeasonPassSeasonPass;
       'api::staking-cool-down.staking-cool-down': ApiStakingCoolDownStakingCoolDown;
+      'api::trade-contract.trade-contract': ApiTradeContractTradeContract;
       'api::vault-faq.vault-faq': ApiVaultFaqVaultFaq;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

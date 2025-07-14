@@ -308,6 +308,19 @@ export interface TokenDistributionTokenDistribution
   };
 }
 
+export interface TokenomicsListOfStrings extends Struct.ComponentSchema {
+  collectionName: 'components_tokenomics_list_of_strings';
+  info: {
+    displayName: 'ListOfStrings';
+    icon: 'paperPlane';
+  };
+  attributes: {
+    EvmAddress: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface TokenomicsTokenomics extends Struct.ComponentSchema {
   collectionName: 'components_tokenomics_tokenomics';
   info: {
@@ -395,6 +408,7 @@ declare module '@strapi/strapi' {
       'smart-links.smart-links': SmartLinksSmartLinks;
       'synthetic-zone.syntetic': SyntheticZoneSyntetic;
       'token-distribution.token-distribution': TokenDistributionTokenDistribution;
+      'tokenomics.list-of-strings': TokenomicsListOfStrings;
       'tokenomics.tokenomics': TokenomicsTokenomics;
       'upload-pool.upload-pool': UploadPoolUploadPool;
       'version.version': VersionVersion;
