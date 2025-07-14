@@ -17,6 +17,21 @@ export interface ChainAddressesChainAddresses extends Struct.ComponentSchema {
   };
 }
 
+export interface ChainAddressesOnlyAddress extends Struct.ComponentSchema {
+  collectionName: 'components_chain_addresses_only_addresses';
+  info: {
+    displayName: 'OnlyAddress';
+  };
+  attributes: {
+    Address: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface ColorIconColorIcon extends Struct.ComponentSchema {
   collectionName: 'components_color_icon_color_icons';
   info: {
@@ -390,6 +405,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'chain-addresses.chain-addresses': ChainAddressesChainAddresses;
+      'chain-addresses.only-address': ChainAddressesOnlyAddress;
       'color-icon.color-icon': ColorIconColorIcon;
       'compiler-setting.compiler-settings': CompilerSettingCompilerSettings;
       'contract-on-chain.contract-on-chain': ContractOnChainContractOnChain;
