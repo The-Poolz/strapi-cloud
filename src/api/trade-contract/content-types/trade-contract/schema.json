@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trade_contracts",
+  "info": {
+    "singularName": "trade-contract",
+    "pluralName": "trade-contracts",
+    "displayName": "TradeContract"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "AdressList": {
+      "type": "component",
+      "component": "tokenomics.list-of-strings",
+      "repeatable": true
+    }
+  }
+}
