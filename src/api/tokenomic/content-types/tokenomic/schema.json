@@ -25,10 +25,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::chain-setting.chain-setting"
-    },
-    "TheGraphUrl": {
-      "type": "string",
-      "required": true
     }
   }
 }

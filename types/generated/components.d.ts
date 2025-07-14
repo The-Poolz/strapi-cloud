@@ -26,6 +26,9 @@ export interface ChainAddressesOnlyAddress extends Struct.ComponentSchema {
     Address: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    IsLocked: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
     Name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
