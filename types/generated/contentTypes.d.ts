@@ -976,6 +976,10 @@ export interface ApiContractsOnChainContractsOnChain
     draftAndPublish: true;
   };
   attributes: {
+    AditionalTheGraphURLs: Schema.Attribute.Component<
+      'the-graph-ur-ls.the-graph-ur-ls',
+      true
+    >;
     Chain: Schema.Attribute.Relation<'oneToOne', 'api::chain.chain'>;
     Contracts: Schema.Attribute.Component<
       'contract-on-chain.contract-on-chain',
@@ -998,10 +1002,6 @@ export interface ApiContractsOnChainContractsOnChain
     publishedAt: Schema.Attribute.DateTime;
     RPC: Schema.Attribute.String;
     TheGraphURL: Schema.Attribute.String;
-    TheGraphURLs: Schema.Attribute.Component<
-      'the-graph-ur-ls.the-graph-ur-ls',
-      true
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
