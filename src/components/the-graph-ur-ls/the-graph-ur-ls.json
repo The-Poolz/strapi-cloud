@@ -6,7 +6,8 @@
   "options": {},
   "attributes": {
     "Url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Type": {
       "type": "string",
