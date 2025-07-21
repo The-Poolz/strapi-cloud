@@ -10,18 +10,18 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "Chain": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::chain.chain",
-      "inversedBy": "contracts_on_chain",
-      "required": true
+      "inversedBy": "contracts_on_chain"
     },
     "Contracts": {
       "type": "component",
-      "repeatable": true,
       "component": "contract-on-chain.contract-on-chain",
+      "repeatable": true,
       "required": true
     },
     "Decimals": {
@@ -45,6 +45,11 @@
     },
     "TheGraphURL": {
       "type": "string"
+    },
+    "AditionalTheGraphURLs": {
+      "type": "component",
+      "component": "the-graph-ur-ls.the-graph-ur-ls",
+      "repeatable": true
     }
   }
 }

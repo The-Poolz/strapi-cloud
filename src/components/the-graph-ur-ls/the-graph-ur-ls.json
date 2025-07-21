@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_the_graph_ur_ls_the_graph_ur_ls",
+  "info": {
+    "displayName": "TheGraphURLs"
+  },
+  "options": {},
+  "attributes": {
+    "Url": {
+      "type": "string",
+      "required": true
+    },
+    "Type": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  },
+  "config": {}
+}

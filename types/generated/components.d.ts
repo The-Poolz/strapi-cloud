@@ -312,6 +312,19 @@ export interface SyntheticZoneSyntetic extends Struct.ComponentSchema {
   };
 }
 
+export interface TheGraphUrLsTheGraphUrLs extends Struct.ComponentSchema {
+  collectionName: 'components_the_graph_ur_ls_the_graph_ur_ls';
+  info: {
+    displayName: 'TheGraphURLs';
+  };
+  attributes: {
+    Type: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface TokenDistributionTokenDistribution
   extends Struct.ComponentSchema {
   collectionName: 'components_token_distribution_token_distributions';
@@ -426,6 +439,7 @@ declare module '@strapi/strapi' {
       'simple-url.simple-url': SimpleUrlSimpleUrl;
       'smart-links.smart-links': SmartLinksSmartLinks;
       'synthetic-zone.syntetic': SyntheticZoneSyntetic;
+      'the-graph-ur-ls.the-graph-ur-ls': TheGraphUrLsTheGraphUrLs;
       'token-distribution.token-distribution': TokenDistributionTokenDistribution;
       'tokenomics.list-of-strings': TokenomicsListOfStrings;
       'tokenomics.tokenomics': TokenomicsTokenomics;

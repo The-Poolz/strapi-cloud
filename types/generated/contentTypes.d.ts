@@ -976,8 +976,11 @@ export interface ApiContractsOnChainContractsOnChain
     draftAndPublish: true;
   };
   attributes: {
-    Chain: Schema.Attribute.Relation<'oneToOne', 'api::chain.chain'> &
-      Schema.Attribute.Required;
+    AditionalTheGraphURLs: Schema.Attribute.Component<
+      'the-graph-ur-ls.the-graph-ur-ls',
+      true
+    >;
+    Chain: Schema.Attribute.Relation<'oneToOne', 'api::chain.chain'>;
     Contracts: Schema.Attribute.Component<
       'contract-on-chain.contract-on-chain',
       true
