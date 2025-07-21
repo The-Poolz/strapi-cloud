@@ -46,7 +46,7 @@
     "TheGraphURL": {
       "type": "string"
     },
-    "TheGraphURLs": {
+    "AditionalTheGraphURLs": {
       "type": "component",
       "component": "the-graph-ur-ls.the-graph-ur-ls",
       "repeatable": true

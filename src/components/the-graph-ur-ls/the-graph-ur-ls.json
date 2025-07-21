@@ -5,11 +5,14 @@
   },
   "options": {},
   "attributes": {
-    "Poolz": {
-      "type": "string"
+    "Url": {
+      "type": "string",
+      "required": true
     },
-    "DaoSender": {
-      "type": "string"
+    "Type": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   },
   "config": {}

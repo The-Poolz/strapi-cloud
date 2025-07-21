@@ -318,8 +318,10 @@ export interface TheGraphUrLsTheGraphUrLs extends Struct.ComponentSchema {
     displayName: 'TheGraphURLs';
   };
   attributes: {
-    DaoSender: Schema.Attribute.String;
-    Poolz: Schema.Attribute.String;
+    Type: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
