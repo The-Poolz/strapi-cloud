@@ -318,9 +318,7 @@ export interface TheGraphUrLsTheGraphUrLs extends Struct.ComponentSchema {
     displayName: 'TheGraphURLs';
   };
   attributes: {
-    Type: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+    Type: Schema.Attribute.String & Schema.Attribute.Required;
     Url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
