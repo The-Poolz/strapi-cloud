@@ -80,6 +80,9 @@
     "coingeckoKey": {
       "type": "string"
     },
+    "Participants": {
+      "type": "integer"
+    },
     "MainListShow": {
       "type": "boolean"
     },
