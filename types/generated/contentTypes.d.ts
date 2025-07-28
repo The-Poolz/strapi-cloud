@@ -1868,6 +1868,7 @@ export interface ApiProjectsInformationProjectsInformation
     Name: Schema.Attribute.String & Schema.Attribute.Required;
     Order: Schema.Attribute.Integer;
     Original: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
+    Participants: Schema.Attribute.Integer;
     PoolzBackId: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0>;
