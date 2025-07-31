@@ -43,9 +43,6 @@
     "WebSocket": {
       "type": "string"
     },
-    "TheGraphURL": {
-      "type": "string"
-    },
     "AditionalTheGraphURLs": {
       "type": "component",
       "component": "the-graph-ur-ls.the-graph-ur-ls",
