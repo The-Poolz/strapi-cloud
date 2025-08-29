@@ -47,6 +47,11 @@
       "type": "component",
       "component": "the-graph-ur-ls.the-graph-ur-ls",
       "repeatable": true
+    },
+    "MultiCallAddress": {
+      "type": "string",
+      "required": false,
+      "regex": "^0x[a-fA-F0-9]{40}$"
     }
   }
 }

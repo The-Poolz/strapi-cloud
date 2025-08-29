@@ -998,6 +998,7 @@ export interface ApiContractsOnChainContractsOnChain
       'api::contracts-on-chain.contracts-on-chain'
     > &
       Schema.Attribute.Private;
+    MultiCallAddress: Schema.Attribute.String;
     NativeCurrency: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     RPC: Schema.Attribute.String;
