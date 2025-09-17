@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "morpho_vault",
+  "info": {
+    "singularName": "morpho-vaults",
+    "pluralName": "morpho-vault",
+    "displayName": "MorphoVaults"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "chain": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chain.chain",
+      "inversedBy": "morpho_vault"
+    },
+    "contract": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contract.contract",
+      "mappedBy": "morpho_vault"
+    },
+    "StakingManager": {
+      "type": "string",
+      "minLength": 42,
+      "maxLength": 42,
+      "required": true,
+      "unique": true,
+      "regex": "^0x[a-fA-F0-9]{40}$"
+    },
+    "MorphoVault": {
+      "type": "string",
+      "minLength": 42,
+      "maxLength": 42,
+      "required": true,
+      "unique": true,
+      "regex": "^0x[a-fA-F0-9]{40}$"
+    }
+  }
+}

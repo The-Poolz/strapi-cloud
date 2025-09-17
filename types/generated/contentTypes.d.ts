@@ -853,6 +853,10 @@ export interface ApiChainChain extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::chain.chain'> &
       Schema.Attribute.Private;
+    morpho_vault: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::morpho-vaults.morpho-vaults'
+    >;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     symbol: Schema.Attribute.String & Schema.Attribute.Required;
@@ -951,6 +955,10 @@ export interface ApiContractContract extends Struct.CollectionTypeSchema {
       'api::contract.contract'
     > &
       Schema.Attribute.Private;
+    morpho_vault: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::morpho-vaults.morpho-vaults'
+    >;
     NameVersion: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
@@ -1591,6 +1599,50 @@ export interface ApiMediaKitMediaKit extends Struct.CollectionTypeSchema {
     Name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     Text: Schema.Attribute.RichText;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMorphoVaultsMorphoVaults
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'morpho_vault';
+  info: {
+    displayName: 'MorphoVaults';
+    pluralName: 'morpho-vault';
+    singularName: 'morpho-vaults';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    chain: Schema.Attribute.Relation<'oneToOne', 'api::chain.chain'>;
+    contract: Schema.Attribute.Relation<'oneToOne', 'api::contract.contract'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::morpho-vaults.morpho-vaults'
+    > &
+      Schema.Attribute.Private;
+    MorphoVault: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 42;
+        minLength: 42;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    StakingManager: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 42;
+        minLength: 42;
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2602,6 +2654,7 @@ declare module '@strapi/strapi' {
       'api::main.main': ApiMainMain;
       'api::market-cap-badge.market-cap-badge': ApiMarketCapBadgeMarketCapBadge;
       'api::media-kit.media-kit': ApiMediaKitMediaKit;
+      'api::morpho-vaults.morpho-vaults': ApiMorphoVaultsMorphoVaults;
       'api::non-evm-chain.non-evm-chain': ApiNonEvmChainNonEvmChain;
       'api::open-grant.open-grant': ApiOpenGrantOpenGrant;
       'api::our-partner.our-partner': ApiOurPartnerOurPartner;

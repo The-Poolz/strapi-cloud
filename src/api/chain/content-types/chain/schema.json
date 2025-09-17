@@ -36,6 +36,12 @@
       "relation": "oneToOne",
       "target": "api::contracts-on-chain.contracts-on-chain",
       "mappedBy": "Chain"
+    },
+    "morpho_vault": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::morpho-vaults.morpho-vaults",
+      "mappedBy": "chain"
     }
   }
 }
