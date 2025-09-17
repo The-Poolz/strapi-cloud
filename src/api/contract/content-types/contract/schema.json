@@ -33,8 +33,14 @@
     },
     "CompilerSetting": {
       "type": "component",
-      "repeatable": false,
-      "component": "compiler-setting.compiler-settings"
+      "component": "compiler-setting.compiler-settings",
+      "repeatable": false
+    },
+    "morpho_vault": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::morpho-vaults.morpho-vaults",
+      "inversedBy": "contract"
     }
   }
 }
