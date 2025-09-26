@@ -12,15 +12,15 @@
   "attributes": {
     "chain": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::chain.chain",
-      "inversedBy": "morpho_vault"
+      "inversedBy": "morpho_vaults"
     },
     "contract": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::contract.contract",
-      "mappedBy": "morpho_vault"
+      "inversedBy": "morpho_vaults"
     },
     "StakingManager": {
       "type": "string",

@@ -853,8 +853,8 @@ export interface ApiChainChain extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::chain.chain'> &
       Schema.Attribute.Private;
-    morpho_vault: Schema.Attribute.Relation<
-      'oneToOne',
+    morpho_vaults: Schema.Attribute.Relation<
+      'oneToMany',
       'api::morpho-vaults.morpho-vaults'
     >;
     name: Schema.Attribute.String & Schema.Attribute.Required;
@@ -955,8 +955,8 @@ export interface ApiContractContract extends Struct.CollectionTypeSchema {
       'api::contract.contract'
     > &
       Schema.Attribute.Private;
-    morpho_vault: Schema.Attribute.Relation<
-      'oneToOne',
+    morpho_vaults: Schema.Attribute.Relation<
+      'oneToMany',
       'api::morpho-vaults.morpho-vaults'
     >;
     NameVersion: Schema.Attribute.String &
@@ -1617,8 +1617,8 @@ export interface ApiMorphoVaultsMorphoVaults
     draftAndPublish: true;
   };
   attributes: {
-    chain: Schema.Attribute.Relation<'oneToOne', 'api::chain.chain'>;
-    contract: Schema.Attribute.Relation<'oneToOne', 'api::contract.contract'>;
+    chain: Schema.Attribute.Relation<'manyToOne', 'api::chain.chain'>;
+    contract: Schema.Attribute.Relation<'manyToOne', 'api::contract.contract'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
