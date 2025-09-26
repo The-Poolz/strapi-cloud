@@ -36,11 +36,11 @@
       "component": "compiler-setting.compiler-settings",
       "repeatable": false
     },
-    "morpho_vault": {
+    "morpho_vaults": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::morpho-vaults.morpho-vaults",
-      "inversedBy": "contract"
+      "mappedBy": "contract"
     }
   }
 }
