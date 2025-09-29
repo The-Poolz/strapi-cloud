@@ -1,0 +1,93 @@
+name: Auto Update Strapi Daily
+
+on:
+  schedule:
+    # Run daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual trigger for testing
+
+jobs:
+  check-and-update-strapi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Get current Strapi version
+        id: current-version
+        run: |
+          CURRENT_VERSION=$(node -e "console.log(require('./package.json').dependencies['@strapi/strapi'])")
+          echo "current=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          echo "Current Strapi version: $CURRENT_VERSION"
+
+      - name: Get latest Strapi version
+        id: latest-version
+        run: |
+          LATEST_VERSION=$(npm view @strapi/strapi version)
+          echo "latest=$LATEST_VERSION" >> $GITHUB_OUTPUT
+          echo "Latest Strapi version: $LATEST_VERSION"
+
+      - name: Compare versions
+        id: compare
+        run: |
+          CURRENT="${{ steps.current-version.outputs.current }}"
+          LATEST="${{ steps.latest-version.outputs.latest }}"
+          
+          # Remove ^ prefix if present
+          CURRENT_CLEAN=$(echo $CURRENT | sed 's/^\^//')
+          
+          echo "Comparing versions:"
+          echo "Current (clean): $CURRENT_CLEAN"
+          echo "Latest: $LATEST"
+          
+          if [ "$CURRENT_CLEAN" != "$LATEST" ]; then
+            echo "New version available!"
+            echo "needs_update=true" >> $GITHUB_OUTPUT
+          else
+            echo "Already up to date"
+            echo "needs_update=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update Strapi
+        if: steps.compare.outputs.needs_update == 'true'
+        run: |
+          echo "Updating Strapi to version ${{ steps.latest-version.outputs.latest }}"
+          npm install @strapi/strapi@${{ steps.latest-version.outputs.latest }}
+
+      - name: Create Pull Request
+        if: steps.compare.outputs.needs_update == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: auto-update strapi to v${{ steps.latest-version.outputs.latest }}"
+          branch: auto-update-strapi-${{ steps.latest-version.outputs.latest }}
+          base: main
+          title: "🤖 Auto Update Strapi to v${{ steps.latest-version.outputs.latest }}"
+          body: |
+            This PR automatically updates Strapi from `${{ steps.current-version.outputs.current }}` to `v${{ steps.latest-version.outputs.latest }}`.
+            
+            **Changes:**
+            - Updated `@strapi/strapi` dependency to the latest version
+            
+            **Automation:**
+            - This PR was created automatically by the daily auto-update workflow
+            - Triggered by scheduled run at 00:00 UTC
+            
+            Please review and merge if the changes look good! 🚀
+          labels: |
+            dependencies
+            auto-update
+            strapi
+
+      - name: Output result
+        run: |
+          if [ "${{ steps.compare.outputs.needs_update }}" == "true" ]; then
+            echo "✅ Created PR for Strapi update from ${{ steps.current-version.outputs.current }} to v${{ steps.latest-version.outputs.latest }}"
+          else
+            echo "ℹ️  No update needed - already on latest version ${{ steps.latest-version.outputs.latest }}"
+          fi
