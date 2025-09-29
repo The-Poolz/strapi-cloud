@@ -52,9 +52,11 @@ npm run deploy
 
 ## 🔄 Update Strapi
 
-We use a GitHub workflow to keep Strapi up to date automatically. You can
-launch the workflow from the
-[Actions page](https://github.com/The-Poolz/strapi-cloud/actions/workflows/update-strapi.yml).
+We use GitHub workflows to keep Strapi up to date automatically:
+
+- **🤖 Auto Update (Daily)**: Runs automatically every day at 00:00 UTC to check for new Strapi versions and creates PRs when updates are available
+- **👤 Manual Update**: You can launch the manual update workflow from the [Actions page](https://github.com/The-Poolz/strapi-cloud/actions/workflows/update-strapi.yml)
+
 The badges below display the latest Strapi release and the version currently
 defined in our [package.json](./package.json).
 
