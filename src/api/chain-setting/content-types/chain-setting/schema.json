@@ -48,12 +48,6 @@
       "target": "api::chain.chain",
       "inversedBy": "chain_setting"
     },
-    "lock_token_whitelist": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::lock-token-whitelist.lock-token-whitelist",
-      "inversedBy": "chain_settings"
-    },
     "projects_informations": {
       "type": "relation",
       "relation": "oneToMany",
